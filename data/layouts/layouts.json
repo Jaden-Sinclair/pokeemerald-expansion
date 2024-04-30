@@ -4414,12 +4414,52 @@
     {
       "id": "LAYOUT_DEMO_CITY_WEST",
       "name": "DemoCityWest_Layout",
-      "width": 20,
+      "width": 32,
       "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Rustboro",
       "border_filepath": "data/layouts/DemoCityWest/border.bin",
       "blockdata_filepath": "data/layouts/DemoCityWest/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEMO_CITY_FLAT1_1F",
+      "name": "DemoCity_Flat1_1F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DemoCity_Flat1_1F/border.bin",
+      "blockdata_filepath": "data/layouts/DemoCity_Flat1_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEMO_CITY_FLAT1_2F",
+      "name": "DemoCity_Flat1_2F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DemoCity_Flat1_2F/border.bin",
+      "blockdata_filepath": "data/layouts/DemoCity_Flat1_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEMO_CITY_FLAT1_3F",
+      "name": "DemoCity_Flat1_3F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/DemoCity_Flat1_3F/border.bin",
+      "blockdata_filepath": "data/layouts/DemoCity_Flat1_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_DEMO_CITY_CENTER",
+      "name": "DemoCityCenter_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EchelonCity",
+      "border_filepath": "data/layouts/DemoCityCenter/border.bin",
+      "blockdata_filepath": "data/layouts/DemoCityCenter/map.bin"
     }
   ]
 }

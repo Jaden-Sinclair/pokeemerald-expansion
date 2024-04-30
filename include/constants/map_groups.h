@@ -64,6 +64,7 @@
 #define MAP_UNDERWATER_ROUTE105 (55 | (0 << 8))
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_DEMO_CITY_WEST      (57 | (0 << 8))
+#define MAP_DEMO_CITY_CENTER    (58 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
@@ -592,6 +593,11 @@
 // gMapGroup_IndoorRoute124
 #define MAP_ROUTE124_DIVING_TREASURE_HUNTERS_HOUSE (0 | (33 << 8))
 
-#define MAP_GROUPS_COUNT 34
+// gMapGroup_IndoorDemoCity
+#define MAP_DEMO_CITY_FLAT1_1F (0 | (34 << 8))
+#define MAP_DEMO_CITY_FLAT1_2F (1 | (34 << 8))
+#define MAP_DEMO_CITY_FLAT1_3F (2 | (34 << 8))
+
+#define MAP_GROUPS_COUNT 35
 
 #endif // GUARD_CONSTANTS_MAP_GROUPS_H

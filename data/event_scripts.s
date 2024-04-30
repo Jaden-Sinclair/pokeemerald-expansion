@@ -1069,3 +1069,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/DemoCityWest/scripts.inc"
+
+	.include "data/maps/DemoCity_Flat1_1F/scripts.inc"
+
+	.include "data/maps/DemoCity_Flat1_2F/scripts.inc"
+
+	.include "data/maps/DemoCity_Flat1_3F/scripts.inc"
+
+	.include "data/maps/DemoCityCenter/scripts.inc"

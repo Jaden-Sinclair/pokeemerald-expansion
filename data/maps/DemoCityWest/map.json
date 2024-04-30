@@ -3,7 +3,7 @@
   "name": "DemoCityWest",
   "layout": "LAYOUT_DEMO_CITY_WEST",
   "music": "MUS_RUSTBORO",
-  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
+  "region_map_section": "MAPSEC_TERRA_CAVE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_CITY",
@@ -12,12 +12,24 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_DEMO_CITY_CENTER",
+      "offset": 0,
+      "direction": "right"
+    }
+  ],
   "object_events": [
 
   ],
   "warp_events": [
-
+    {
+      "x": 6,
+      "y": 5,
+      "elevation": 0,
+      "dest_map": "MAP_DEMO_CITY_FLAT1_1F",
+      "dest_warp_id": "0"
+    }
   ],
   "coord_events": [
 
