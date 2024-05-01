@@ -1670,7 +1670,19 @@
 #define SPECIES_1024_FORM_3                             GEN9_START + 145
 #define SPECIES_1025                                    GEN9_START + 146
 
-#define PLACEHOLDER_START                               SPECIES_1025
+#define GEN10_START                                     SPECIES_1025
+
+#define SPECIES_SHARPUGGLE                              GEN10_START + 1
+#define SPECIES_POKIDNA                                 GEN10_START + 2
+#define SPECIES_ARQUILLERY                              GEN10_START + 3
+#define SPECIES_WISPAN                                  GEN10_START + 4
+#define SPECIES_PANARDOR                                GEN10_START + 5
+#define SPECIES_PASSIANDA                               GEN10_START + 6
+#define SPECIES_PACHYDENT                               GEN10_START + 7
+#define SPECIES_HIPPUGIL                                GEN10_START + 8
+#define SPECIES_TUSCOURGE                               GEN10_START + 9
+
+#define PLACEHOLDER_START                               SPECIES_TUSCOURGE
 // XD: Gale of Darkness
 #define SPECIES_LUGIA_SHADOW                            PLACEHOLDER_START + 1
 // Diamond & Pearl

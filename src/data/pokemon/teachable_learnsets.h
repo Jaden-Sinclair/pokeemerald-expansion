@@ -38975,3 +38975,48 @@ static const u16 sOgerponTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_OGERPON
+
+#if P_FAMILY_SHARPUGGLE
+static const u16 sSharpuggleTeachableLearnset[] = {
+    MOVE_GRASS_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sPokidnaTeachableLearnset[] = {
+    MOVE_GRASS_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sArquilleryTeachableLearnset[] = {
+    MOVE_GRASS_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_SHARPUGGLE
+
+#if P_FAMILY_WISPAN
+static const u16 sWispanTeachableLearnset[] = {
+    MOVE_FIRE_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sPanardorTeachableLearnset[] = {
+    MOVE_FIRE_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sPassiandaTeachableLearnset[] = {
+    MOVE_FIRE_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_WISPAN
+
+#if P_FAMILY_PACHYDENT
+static const u16 sPachydentTeachableLearnset[] = {
+    MOVE_WATER_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sHippugilTeachableLearnset[] = {
+    MOVE_WATER_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+static const u16 sTuscourgeTeachableLearnset[] = {
+    MOVE_WATER_PLEDGE,
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_PACHYDENT

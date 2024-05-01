@@ -15,6 +15,7 @@
 #define P_GEN_7_POKEMON                  TRUE // Generation 7 Pokémon (SM, USUM, LGPE)
 #define P_GEN_8_POKEMON                  TRUE // Generation 8 Pokémon (SwSh, BDSP, LA)
 #define P_GEN_9_POKEMON                  TRUE // Generation 9 Pokémon (SV)
+#define P_GEN_10_POKEMON                 TRUE // Generation 10 Pokémon (SmSt)
 
 // Setting this to TRUE will add the new evolutions to the Regional Dex.
 #define P_NEW_EVOS_IN_REGIONAL_DEX       TRUE
@@ -594,5 +595,15 @@
 #define P_FAMILY_MUNKIDORI               P_GEN_9_POKEMON
 #define P_FAMILY_FEZANDIPITI             P_GEN_9_POKEMON
 #define P_FAMILY_OGERPON                 P_GEN_9_POKEMON
+
+#define P_FAMILY_SHARPUGGLE              P_GEN_10_POKEMON
+#define P_FAMILY_POKIDNA                 P_GEN_10_POKEMON
+#define P_FAMILY_ARQUILLERY              P_GEN_10_POKEMON
+#define P_FAMILY_WISPAN                  P_GEN_10_POKEMON
+#define P_FAMILY_PANARDOR                P_GEN_10_POKEMON
+#define P_FAMILY_PASSIANDA               P_GEN_10_POKEMON
+#define P_FAMILY_PACHYDENT               P_GEN_10_POKEMON
+#define P_FAMILY_HIPPUGIL                P_GEN_10_POKEMON
+#define P_FAMILY_TUSCOURGE               P_GEN_10_POKEMON
 
 #endif // GUARD_CONFIG_SPECIES_ENABLED_H

@@ -10906,6 +10906,15 @@ const u8 gMonFootprint_QuestionMark[] = INCBIN_U8("graphics/pokemon/question_mar
     // const u32 gMonShinyPalette_OgerponCornerstoneMaskTera[] = INCBIN_U32("graphics/pokemon/ogerpon/cornerstone/tera/shiny.gbapal.lz");
 #endif //P_FAMILY_OGERPON
 
+#if P_FAMILY_SHARPUGGLE
+    const u32 gMonFrontPic_Sharpuggle[] = INCBIN_U32("graphics/pokemon/sharpuggle/anim_front.4bpp.lz");
+    const u32 gMonPalette_Sharpuggle[] = INCBIN_U32("graphics/pokemon/sharpuggle/normal.gbapal.lz");
+    const u32 gMonBackPic_Sharpuggle[] = INCBIN_U32("graphics/pokemon/sharpuggle/back.4bpp.lz");
+    const u32 gMonShinyPalette_Sharpuggle[] = INCBIN_U32("graphics/pokemon/sharpuggle/shiny.gbapal.lz");
+    const u8 gMonIcon_Sharpuggle[] = INCBIN_U8("graphics/pokemon/sharpuggle/icon.4bpp");
+    const u8 gMonFootprint_Sharpuggle[] = INCBIN_U8("graphics/pokemon/sharpuggle/footprint.1bpp");
+#endif //P_FAMILY_SHARPUGGLE
+
     const u32 gMonFrontPic_Egg[] = INCBIN_U32("graphics/pokemon/egg/anim_front.4bpp.lz");
     const u32 gMonPalette_Egg[] = INCBIN_U32("graphics/pokemon/egg/normal.gbapal.lz");
     const u8 gMonIcon_Egg[] = INCBIN_U8("graphics/pokemon/egg/icon.4bpp");
