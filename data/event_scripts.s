@@ -1078,4 +1078,4 @@ EventScript_VsSeekerChargingDone::
 
 	.include "data/maps/DemoCityCenter/scripts.inc"
 
-	.include "data/maps/EchelonCity/scripts.inc"
+	.include "data/maps/EchelonCityWest/scripts.inc"

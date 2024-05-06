@@ -1,7 +1,7 @@
 {
-  "id": "MAP_ECHELON_CITY",
-  "name": "EchelonCity",
-  "layout": "LAYOUT_ECHELON_CITY",
+  "id": "MAP_ECHELON_CITY_WEST",
+  "name": "EchelonCityWest",
+  "layout": "LAYOUT_ECHELON_CITY_WEST",
   "music": "MUS_DUMMY",
   "region_map_section": "MAPSEC_EVER_GRANDE_CITY",
   "requires_flash": false,

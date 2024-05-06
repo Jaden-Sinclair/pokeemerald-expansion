@@ -11493,8 +11493,8 @@
           }
         },
         {
-          "map": "MAP_ECHELON_CITY",
-          "base_label": "gEchelonCity"
+          "map": "MAP_ECHELON_CITY_WEST",
+          "base_label": "gEchelonCityWest"
         }
       ]
     },

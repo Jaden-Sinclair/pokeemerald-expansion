@@ -826,13 +826,13 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-const struct Tileset gTileset_EchelonCity =
+const struct Tileset gTileset_EchelonCityWest =
 {
     .isCompressed = TRUE,
     .isSecondary = TRUE,
-    .tiles = gTilesetTiles_EchelonCity,
-    .palettes = gTilesetPalettes_EchelonCity,
-    .metatiles = gMetatiles_EchelonCity,
-    .metatileAttributes = gMetatileAttributes_EchelonCity,
+    .tiles = gTilesetTiles_EchelonCityWest,
+    .palettes = gTilesetPalettes_EchelonCityWest,
+    .metatiles = gMetatiles_EchelonCityWest,
+    .metatileAttributes = gMetatileAttributes_EchelonCityWest,
     .callback = NULL,
 };

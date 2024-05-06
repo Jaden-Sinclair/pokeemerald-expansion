@@ -4462,14 +4462,14 @@
       "blockdata_filepath": "data/layouts/DemoCityCenter/map.bin"
     },
     {
-      "id": "LAYOUT_ECHELON_CITY",
-      "name": "EchelonCity_Layout",
+      "id": "LAYOUT_ECHELON_CITY_WEST",
+      "name": "EchelonCityWest_Layout",
       "width": 80,
       "height": 62,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_EchelonCity",
-      "border_filepath": "data/layouts/EchelonCity/border.bin",
-      "blockdata_filepath": "data/layouts/EchelonCity/map.bin"
+      "secondary_tileset": "gTileset_EchelonCityWest",
+      "border_filepath": "data/layouts/EchelonCityWest/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityWest/map.bin"
     }
   ]
 }

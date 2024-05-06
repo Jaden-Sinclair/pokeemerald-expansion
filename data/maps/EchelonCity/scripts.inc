@@ -1,2 +1,2 @@
-EchelonCity_MapScripts::
+EchelonCityWest_MapScripts::
 	.byte 0

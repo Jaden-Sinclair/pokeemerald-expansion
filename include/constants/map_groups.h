@@ -65,7 +65,7 @@
 #define MAP_UNDERWATER_ROUTE125 (56 | (0 << 8))
 #define MAP_DEMO_CITY_WEST      (57 | (0 << 8))
 #define MAP_DEMO_CITY_CENTER    (58 | (0 << 8))
-#define MAP_ECHELON_CITY        (59 | (0 << 8))
+#define MAP_ECHELON_CITY_WEST   (59 | (0 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (1 << 8))
