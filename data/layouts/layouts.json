@@ -2417,7 +2417,7 @@
       "width": 58,
       "height": 26,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "0",
+      "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/UnusedOutdoorArea/border.bin",
       "blockdata_filepath": "data/layouts/UnusedOutdoorArea/map.bin"
     },
@@ -4457,9 +4457,19 @@
       "width": 20,
       "height": 20,
       "primary_tileset": "gTileset_General",
-      "secondary_tileset": "gTileset_EchelonCity",
+      "secondary_tileset": "gTileset_BattleDome",
       "border_filepath": "data/layouts/DemoCityCenter/border.bin",
       "blockdata_filepath": "data/layouts/DemoCityCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY",
+      "name": "EchelonCity_Layout",
+      "width": 80,
+      "height": 62,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EchelonCity",
+      "border_filepath": "data/layouts/EchelonCity/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCity/map.bin"
     }
   ]
 }

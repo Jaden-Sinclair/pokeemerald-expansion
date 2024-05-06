@@ -442,6 +442,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectGlaiveRush              @ EFFECT_GLAIVE_RUSH
 	.4byte BattleScript_EffectBrickBreak              @ EFFECT_RAGING_BULL
 	.4byte BattleScript_EffectHit                     @ EFFECT_RAGE_FIST
+	.4byte BattleScript_EffectQuillBarrage            @ EFFECT_QUILL_BARRAGE
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -10736,3 +10737,10 @@ BattleScript_EffectSnow::
 	call BattleScript_CheckPrimalWeather
 	setsnow
 	goto BattleScript_MoveWeatherChange
+
+BattleScript_EffectQuillBarrage::
+	call BattleScript_EffectMultiHit
+	trysetspikes BattleScript_FailedFromAtkString
+	printstring STRINGID_SPIKESSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd

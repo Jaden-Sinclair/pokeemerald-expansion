@@ -1077,3 +1077,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DemoCity_Flat1_3F/scripts.inc"
 
 	.include "data/maps/DemoCityCenter/scripts.inc"
+
+	.include "data/maps/EchelonCity/scripts.inc"

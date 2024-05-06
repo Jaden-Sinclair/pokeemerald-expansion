@@ -23150,6 +23150,7 @@ static const struct LevelUpMove sOgerponLevelUpLearnset[] = {
 
 #if P_FAMILY_SHARPUGGLE
 static const struct LevelUpMove sSharpuggleLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_QUILL_BARRAGE),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 3, MOVE_LEAFAGE),
@@ -23189,6 +23190,7 @@ static const struct LevelUpMove sPokidnaLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sArquilleryLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_QUILL_BARRAGE),
     LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 3, MOVE_LEAFAGE),

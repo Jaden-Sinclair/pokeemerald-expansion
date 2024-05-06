@@ -14709,6 +14709,20 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .zMoveEffect = Z_EFFECT_NONE,
     },
 
+    [MOVE_QUILL_BARRAGE] =
+    {
+        .power = 5,
+        .accuracy = 95,
+        .effect = EFFECT_QUILL_BARRAGE,
+        .type = TYPE_GRASS,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {

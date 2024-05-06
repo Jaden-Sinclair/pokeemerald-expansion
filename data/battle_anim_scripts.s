@@ -875,6 +875,8 @@ gBattleAnims_Moves::
 	.4byte Move_PSYCHIC_NOISE
 	.4byte Move_UPPER_HAND
 	.4byte Move_MALIGNANT_CHAIN
+@@@@@@@@@@@@ GEN 10 @@@@@@@@@@@@
+	.4byte Move_QUILL_BARRAGE
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -26525,6 +26527,35 @@ WeatherBallIce:
 	playsewithpan SE_M_ICY_WIND, SOUND_PAN_TARGET
 	call IceCrystalEffectShort
 	waitforvisualfinish
+	end
+
+Move_QUILL_BARRAGE:
+	loadspritegfx ANIM_TAG_NEEDLE
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	splitbgprio ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_JUMP_KICK, SOUND_PAN_ATTACKER
+	createsprite gPinMissileSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, -8, -8, 20, -32
+	delay 15
+	createsprite gPinMissileSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, 8, 8, 20, -40
+	delay 4
+	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, -8, -8, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
+	delay 9
+	createsprite gPinMissileSpriteTemplate, ANIM_ATTACKER, 2, 20, -8, 0, 0, 20, -32
+	delay 4
+	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 8, 8, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
+	delay 14
+	playsewithpan SE_M_HORN_ATTACK, SOUND_PAN_TARGET
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 3, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 3, 0, 2, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
 	end
 
 Move_COUNT:

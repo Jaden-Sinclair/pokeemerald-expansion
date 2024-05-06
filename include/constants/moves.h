@@ -910,7 +910,12 @@
 
 #define MOVES_COUNT_GEN9 848
 
-#define MOVES_COUNT         MOVES_COUNT_GEN9
+// Gen 10 moves.
+#define MOVE_QUILL_BARRAGE 848
+
+#define MOVES_COUNT_GEN10 849
+
+#define MOVES_COUNT         MOVES_COUNT_GEN10
 
 // Z Moves
 #define MOVE_BREAKNECK_BLITZ (MOVES_COUNT + 0)
