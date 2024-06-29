@@ -1653,3 +1653,41 @@ const u16 gTilesetPalettes_EchelonCityWest[][16] =
 };
 
 const u32 gTilesetTiles_EchelonCityWest[] = INCBIN_U32("data/tilesets/secondary/echelon_city_west/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_EchelonCityNorth[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_north/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_EchelonCityNorth[] = INCBIN_U32("data/tilesets/secondary/echelon_city_north/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_EchelonCityWestIndoor[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_EchelonCityWestIndoor[] = INCBIN_U32("data/tilesets/secondary/echelon_city_west_indoor/tiles.4bpp.lz");

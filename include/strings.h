@@ -394,6 +394,7 @@ extern const u8 gText_DefaultNameLucy[];
 extern const u8 gText_DefaultNameHalie[];
 
 extern const u8 gText_BirchInTrouble[];
+extern const u8 gText_ChooseFirstPartner[];
 extern const u8 gText_ConfirmStarterChoice[];
 
 // mystery event menu text

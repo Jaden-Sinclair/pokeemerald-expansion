@@ -119,7 +119,7 @@
 #define FLAG_MOSSDEEP_GYM_SWITCH_3           0x66 //
 #define FLAG_MOSSDEEP_GYM_SWITCH_4           0x67 //
 
-#define FLAG_UNUSED_0x068                    0x68  // Unused Flag
+#define FLAG_SKIP_AHEAD                      0x68  // Flag to skip directly to location
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0x69
 #define FLAG_RECEIVED_HM_STRENGTH            0x6A
@@ -1046,11 +1046,11 @@
 #define FLAG_HIDE_RUSTBORO_CITY_POKEMON_SCHOOL_SCOTT                0x3E7
 
 // Item Ball Flags
-#define FLAG_ITEM_ROUTE_102_POTION                                  0x3E8
-#define FLAG_ITEM_ROUTE_116_X_SPECIAL                               0x3E9
-#define FLAG_ITEM_ROUTE_104_PP_UP                                   0x3EA
-#define FLAG_ITEM_ROUTE_105_IRON                                    0x3EB
-#define FLAG_ITEM_ROUTE_106_PROTEIN                                 0x3EC
+#define FLAG_ITEM_ECHELON_CITY_WEST_POTION                          0x3E8
+#define FLAG_ITEM_ECHELON_CITY_WEST_BOTTLE_CAP                      0x3E9
+#define FLAG_ITEM_ECHELON_CITY_WEST_FRESH_WATER                     0x3EA
+#define FLAG_ITEM_ECHELON_CITY_WEST_TM06                            0x3EB
+#define FLAG_ITEM_ECHELON_CITY_NORTH_LAB_SUPER_POTION               0x3EC
 #define FLAG_ITEM_ROUTE_109_PP_UP                                   0x3ED
 #define FLAG_ITEM_ROUTE_110_RARE_CANDY                              0x3EE
 #define FLAG_ITEM_ROUTE_110_DIRE_HIT                                0x3EF
@@ -1502,14 +1502,14 @@
 
 #define FLAG_RECEIVED_POKEDEX_FROM_BIRCH            (SYSTEM_FLAGS + 0x84)
 
-#define FLAG_UNUSED_0x8E5                           (SYSTEM_FLAGS + 0x85) // Unused Flag
-#define FLAG_UNUSED_0x8E6                           (SYSTEM_FLAGS + 0x86) // Unused Flag
-#define FLAG_UNUSED_0x8E7                           (SYSTEM_FLAGS + 0x87) // Unused Flag
-#define FLAG_UNUSED_0x8E8                           (SYSTEM_FLAGS + 0x88) // Unused Flag
-#define FLAG_UNUSED_0x8E9                           (SYSTEM_FLAGS + 0x89) // Unused Flag
-#define FLAG_UNUSED_0x8EA                           (SYSTEM_FLAGS + 0x8A) // Unused Flag
-#define FLAG_UNUSED_0x8EB                           (SYSTEM_FLAGS + 0x8B) // Unused Flag
-#define FLAG_UNUSED_0x8EC                           (SYSTEM_FLAGS + 0x8C) // Unused Flag
+#define FLAG_HIDE_ANNA                              (SYSTEM_FLAGS + 0x85)
+#define FLAG_TOOK_LEFTOVERS                         (SYSTEM_FLAGS + 0x86)
+#define FLAG_GIVEN_LEMONADE                         (SYSTEM_FLAGS + 0x87)
+#define FLAG_ECW_NORTH_BRIDGE_ID_CHECKED            (SYSTEM_FLAGS + 0x88)
+#define FLAG_STOPPED_BY_GUARD                       (SYSTEM_FLAGS + 0x89)
+#define FLAG_ENTERED_LAB                            (SYSTEM_FLAGS + 0x8A)
+#define FLAG_ECN_EAST_BRIDGE_ID_CHECKED             (SYSTEM_FLAGS + 0x8B)
+#define FLAG_RECEIVED_STARTER                       (SYSTEM_FLAGS + 0x8C)
 #define FLAG_UNUSED_0x8ED                           (SYSTEM_FLAGS + 0x8D) // Unused Flag
 #define FLAG_UNUSED_0x8EE                           (SYSTEM_FLAGS + 0x8E) // Unused Flag
 #define FLAG_UNUSED_0x8EF                           (SYSTEM_FLAGS + 0x8F) // Unused Flag

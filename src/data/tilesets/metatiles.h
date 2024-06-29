@@ -210,3 +210,9 @@ const u16 gMetatileAttributes_UnionRoom[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_EchelonCityWest[] = INCBIN_U16("data/tilesets/secondary/echelon_city_west/metatiles.bin");
 const u16 gMetatileAttributes_EchelonCityWest[] = INCBIN_U16("data/tilesets/secondary/echelon_city_west/metatile_attributes.bin");
+
+const u16 gMetatiles_EchelonCityNorth[] = INCBIN_U16("data/tilesets/secondary/echelon_city_north/metatiles.bin");
+const u16 gMetatileAttributes_EchelonCityNorth[] = INCBIN_U16("data/tilesets/secondary/echelon_city_north/metatile_attributes.bin");
+
+const u16 gMetatiles_EchelonCityWestIndoor[] = INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/metatiles.bin");
+const u16 gMetatileAttributes_EchelonCityWestIndoor[] = INCBIN_U16("data/tilesets/secondary/echelon_city_west_indoor/metatile_attributes.bin");

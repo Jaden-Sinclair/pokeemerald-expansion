@@ -4470,6 +4470,66 @@
       "secondary_tileset": "gTileset_EchelonCityWest",
       "border_filepath": "data/layouts/EchelonCityWest/border.bin",
       "blockdata_filepath": "data/layouts/EchelonCityWest/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_NORTH",
+      "name": "EchelonCityNorth_Layout",
+      "width": 60,
+      "height": 30,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EchelonCityNorth",
+      "border_filepath": "data/layouts/EchelonCityNorth/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityNorth/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_EAST",
+      "name": "EchelonCityEast_Layout",
+      "width": 60,
+      "height": 60,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_EchelonCityNorth",
+      "border_filepath": "data/layouts/EchelonCityEast/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityEast/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_WEST_PLAYER_FLAT_1F",
+      "name": "EchelonCityWest_PlayerFlat_1F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "border_filepath": "data/layouts/EchelonCityWest_PlayerFlat_1F/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityWest_PlayerFlat_1F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_WEST_PLAYER_FLAT_2F",
+      "name": "EchelonCityWest_PlayerFlat_2F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "border_filepath": "data/layouts/EchelonCityWest_PlayerFlat_2F/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityWest_PlayerFlat_2F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_WEST_PLAYER_FLAT_3F",
+      "name": "EchelonCityWest_PlayerFlat_3F_Layout",
+      "width": 17,
+      "height": 13,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "border_filepath": "data/layouts/EchelonCityWest_PlayerFlat_3F/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityWest_PlayerFlat_3F/map.bin"
+    },
+    {
+      "id": "LAYOUT_ECHELON_CITY_NORTH_POKE_LAB",
+      "name": "EchelonCityNorth_PokeLab_Layout",
+      "width": 24,
+      "height": 16,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Lab",
+      "border_filepath": "data/layouts/EchelonCityNorth_PokeLab/border.bin",
+      "blockdata_filepath": "data/layouts/EchelonCityNorth_PokeLab/map.bin"
     }
   ]
 }

@@ -3,7 +3,7 @@ DemoCity_Flat1_2F_MapScripts::
 
 DemoCity_Flat1_2F_EventScript_FridgeStarter::
 	lock
-	setflag FLAG_SYS_POKEMON_GET
+	setflag FLAG_RECEIVED_STARTER
 	special ChooseStarter
 	special HealPlayerParty
 	release

@@ -143,6 +143,11 @@
 #define METATILE_Dewford_Door              0x225
 #define METATILE_Dewford_Door_BattleTower  0x25D
 
+// gTileset_EchelonCityWest
+#define METATILE_EchelonCityWest_Door_Brown  0x2A3
+#define METATILE_EchelonCityWest_Door_Gray   0x238
+#define METATILE_EchelonCityWest_Door_Tan    0x2A0
+
 // gTileset_EliteFour
 #define METATILE_EliteFour_EntryDoor_ClosedBottom    0x20E
 #define METATILE_EliteFour_EntryDoor_ClosedTop       0x206

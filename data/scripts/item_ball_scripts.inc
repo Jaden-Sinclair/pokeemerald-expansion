@@ -30,10 +30,6 @@ Route105_EventScript_ItemIron::
 	finditem ITEM_IRON
 	end
 
-Route106_EventScript_ItemProtein::
-	finditem ITEM_PROTEIN
-	end
-
 Route108_EventScript_ItemStarPiece::
 	finditem ITEM_STAR_PIECE
 	end

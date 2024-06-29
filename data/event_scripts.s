@@ -1079,3 +1079,15 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/DemoCityCenter/scripts.inc"
 
 	.include "data/maps/EchelonCityWest/scripts.inc"
+
+	.include "data/maps/EchelonCityNorth/scripts.inc"
+
+	.include "data/maps/EchelonCityEast/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_PlayerFlat_1F/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_PlayerFlat_2F/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_PlayerFlat_3F/scripts.inc"
+
+	.include "data/maps/EchelonCityNorth_PokeLab/scripts.inc"

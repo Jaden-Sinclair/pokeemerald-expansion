@@ -1,6 +1,8 @@
 {
   "group_order": [
     "gMapGroup_TownsAndRoutes",
+    "gMapGroup_IndoorEchelonCityWest",
+    "gMapGroup_IndoorEchelonCityNorth",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -96,7 +98,17 @@
     "Underwater_Route125",
     "DemoCityWest",
     "DemoCityCenter",
-    "EchelonCityWest"
+    "EchelonCityWest",
+    "EchelonCityNorth",
+    "EchelonCityEast"
+  ],
+  "gMapGroup_IndoorEchelonCityWest": [
+    "EchelonCityWest_PlayerFlat_1F",
+    "EchelonCityWest_PlayerFlat_2F",
+    "EchelonCityWest_PlayerFlat_3F"
+  ],
+  "gMapGroup_IndoorEchelonCityNorth": [
+    "EchelonCityNorth_PokeLab"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

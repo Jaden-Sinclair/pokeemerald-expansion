@@ -6,6 +6,7 @@
 #include "daycare.h"
 #include "decompress.h"
 #include "event_data.h"
+#include "field_specials.h"
 #include "international_string_util.h"
 #include "link.h"
 #include "link_rfu.h"
@@ -16,6 +17,7 @@
 #include "party_menu.h"
 #include "pokedex.h"
 #include "pokemon.h"
+#include "pokemon_summary_screen.h"
 #include "random.h"
 #include "script.h"
 #include "sprite.h"
@@ -272,4 +274,9 @@ void ReducePlayerPartyToSelectedMons(void)
         gPlayerParty[i] = party[i];
 
     CalculatePlayerPartyCount();
+}
+
+u8 GetLeadPokemonNature(void)
+{
+    return GetNature(&gPlayerParty[GetLeadMonIndex()]);
 }

@@ -50,7 +50,7 @@
 #define VAR_RECYCLE_GOODS                                0x4020
 #define VAR_REPEL_STEP_COUNT                             0x4021
 #define VAR_ICE_STEP_COUNT                               0x4022
-#define VAR_STARTER_MON                                  0x4023 // 0=Treecko, 1=Torchic, 2=Mudkip
+#define VAR_STARTER_MON                                  0x4023 // 0=Sharpuggle, 1=Wispan, 2=Pachydent
 #define VAR_MIRAGE_RND_H                                 0x4024
 #define VAR_MIRAGE_RND_L                                 0x4025
 #define VAR_SECRET_BASE_MAP                              0x4026
@@ -95,30 +95,30 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_UNUSED_0x404E                                0x404E // Unused Var
+#define VAR_ECHELON_CITY_WEST_STATE                      0x404E
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
-#define VAR_DEWFORD_TOWN_STATE                           0x4052 // Unused Var
+#define VAR_ENTERED_LAB                                  0x4052 // Used to check if the player has gone in the lab
 #define VAR_LAVARIDGE_TOWN_STATE                         0x4053
 #define VAR_CURRENT_SECRET_BASE                          0x4054 // was probably allocated for VAR_FALLARBOR_TOWN_STATE at one point
-#define VAR_VERDANTURF_TOWN_STATE                        0x4055 // Unused Var
-#define VAR_PACIFIDLOG_TOWN_STATE                        0x4056 // Unused Var
+#define VAR_COMPASSION                                   0x4055 // Player Deed Tracker
+#define VAR_REBELLION                                    0x4056 // Player Deed Tracker
 #define VAR_PETALBURG_CITY_STATE                         0x4057
 #define VAR_SLATEPORT_CITY_STATE                         0x4058
-#define VAR_MAUVILLE_CITY_STATE                          0x4059 // Unused Var
+#define VAR_HONESTY                                      0x4059 // Player Deed Tracker
 #define VAR_RUSTBORO_CITY_STATE                          0x405A
-#define VAR_FORTREE_CITY_STATE                           0x405B // Unused Var
-#define VAR_LILYCOVE_CITY_STATE                          0x405C // Unused Var
+#define VAR_DECEIT                                       0x405B // Player Deed Tracker
+#define VAR_ADVENTURE                                    0x405C // Player Deed Tracker
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
-#define VAR_EVER_GRANDE_CITY_STATE                       0x405F // Unused Var
+#define VAR_CONSTANT                                     0x405F
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
+#define VAR_ECHELON_CITY_NORTH_STATE                     0x4061
+#define VAR_ECHELON_CITY_NORTH_LAB_STATE                 0x4062
 #define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
+#define VAR_PLAYER_X                                     0x4064
+#define VAR_PLAYER_Y                                     0x4065
 #define VAR_ROUTE107_STATE                               0x4066 // Unused Var
 #define VAR_ROUTE108_STATE                               0x4067 // Unused Var
 #define VAR_ROUTE109_STATE                               0x4068 // Unused Var

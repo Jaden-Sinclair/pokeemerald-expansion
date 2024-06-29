@@ -96,6 +96,42 @@ static const struct SpriteFrameImage sPicTable_BrendanFieldMove[] = {
     overworld_frame(gObjectEventPic_BrendanFieldMove, 4, 4, 4),
 };
 
+const struct SpriteFrameImage gObjectEventPicTable_GuardM[] = {
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 3),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 4),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 5),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 6),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 7),
+    overworld_frame(gObjectEventPic_GuardM, 2, 4, 8),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_GuardF[] = {
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 0),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 1),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 2),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 3),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 4),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 5),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 6),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 7),
+    overworld_frame(gObjectEventPic_GuardF, 2, 4, 8),
+};
+
+const struct SpriteFrameImage gObjectEventPicTable_Worker[] = {
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 0),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 1),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 2),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 3),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 4),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 5),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 6),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 7),
+    overworld_frame(gObjectEventPic_Worker, 2, 4, 8),
+};
+
 static const struct SpriteFrameImage sPicTable_QuintyPlump[] = {
     overworld_frame(gObjectEventPic_QuintyPlump, 4, 4, 0),
     overworld_frame(gObjectEventPic_QuintyPlump, 4, 4, 1),
@@ -2171,4 +2207,8 @@ static const struct SpriteFrameImage sPicTable_RubySapphireMay[] = {
     overworld_frame(gObjectEventPic_RubySapphireMayNormal, 2, 4, 6),
     overworld_frame(gObjectEventPic_RubySapphireMayNormal, 2, 4, 7),
     overworld_frame(gObjectEventPic_RubySapphireMayNormal, 2, 4, 8),
+};
+
+static const struct SpriteFrameImage sPicTable_Blank[] = {
+    obj_frame_tiles(gObjectEventPic_Blank),
 };

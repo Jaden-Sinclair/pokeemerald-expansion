@@ -12,7 +12,18 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": [
+    {
+      "map": "MAP_ECHELON_CITY_NORTH",
+      "offset": 45,
+      "direction": "up"
+    },
+    {
+      "map": "MAP_ECHELON_CITY_EAST",
+      "offset": 0,
+      "direction": "right"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
@@ -25,16 +36,358 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "ITEM_POTION",
       "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ECHELON_CITY_WEST_POTION"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 24,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_BOTTLE_CAP",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ECHELON_CITY_WEST_BOTTLE_CAP"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 16,
+      "y": 45,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_FRESH_WATER",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ECHELON_CITY_WEST_FRESH_WATER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 12,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "ITEM_TM06",
+      "script": "Common_EventScript_FindItem",
+      "flag": "FLAG_ITEM_ECHELON_CITY_WEST_TM06"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ANABEL",
+      "x": 42,
+      "y": 34,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ANNA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M",
+      "x": 67,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EchelonCityWest_EventScript_NorthBridgeGuardBehavior",
       "flag": "0"
     }
   ],
   "warp_events": [
-
+    {
+      "x": 37,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_ECHELON_CITY_WEST_PLAYER_FLAT_1F",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 42,
+      "y": 35,
+      "elevation": 0,
+      "dest_map": "MAP_ECHELON_CITY_WEST",
+      "dest_warp_id": "4"
+    },
+    {
+      "x": 37,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_ECHELON_CITY_WEST",
+      "dest_warp_id": "3"
+    },
+    {
+      "x": 43,
+      "y": 27,
+      "elevation": 0,
+      "dest_map": "MAP_ECHELON_CITY_WEST",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 37,
+      "y": 18,
+      "elevation": 0,
+      "dest_map": "MAP_ECHELON_CITY_WEST",
+      "dest_warp_id": "1"
+    }
   ],
   "coord_events": [
-
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 36,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_ExitApartmentUpper"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 21,
+      "elevation": 0,
+      "var": "FLAG_RECEIVED_STARTER",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 20,
+      "elevation": 0,
+      "var": "FLAG_RECEIVED_STARTER",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 19,
+      "elevation": 0,
+      "var": "FLAG_RECEIVED_STARTER",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "1",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsRight"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "1",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsRight"
+    },
+    {
+      "type": "trigger",
+      "x": 41,
+      "y": 24,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "1",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsRight"
+    },
+    {
+      "type": "trigger",
+      "x": 48,
+      "y": 22,
+      "elevation": 0,
+      "var": "FLAG_RECEIVED_STARTER",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_KeepPlayerUpAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 49,
+      "y": 22,
+      "elevation": 0,
+      "var": "FLAG_RECEIVED_STARTER",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_KeepPlayerUpAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsUp"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsUp"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsUp"
+    },
+    {
+      "type": "trigger",
+      "x": 47,
+      "y": 16,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsUp"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsAcrossBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsAcrossBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 62,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
+      "script": "EchelonCityWest_EventScript_AnnaLeadsAcrossBridge"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 37,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_ExitApartmentLower"
+    },
+    {
+      "type": "trigger",
+      "x": 66,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_CONSTANT",
+      "var_value": "0",
+      "script": "EchelonCityWest_EventScript_NorthBridgeGuardStopsPlayer"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 9,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "4",
+      "script": "EchelonCityWest_EventScript_NorthBridgeGuardBridgeClosing"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "4",
+      "script": "EchelonCityWest_EventScript_NorthBridgeGuardBridgeClosing"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 11,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "4",
+      "script": "EchelonCityWest_EventScript_NorthBridgeGuardBridgeClosing"
+    }
   ],
   "bg_events": [
-
+    {
+      "type": "sign",
+      "x": 23,
+      "y": 46,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_BeachSign"
+    },
+    {
+      "type": "sign",
+      "x": 8,
+      "y": 29,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_BridgeWestSign"
+    },
+    {
+      "type": "sign",
+      "x": 20,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_ParkSign"
+    },
+    {
+      "type": "sign",
+      "x": 30,
+      "y": 15,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_TrainStationSign"
+    },
+    {
+      "type": "sign",
+      "x": 43,
+      "y": 18,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_SchoolSign"
+    },
+    {
+      "type": "sign",
+      "x": 65,
+      "y": 9,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_BridgeNorthSign"
+    },
+    {
+      "type": "sign",
+      "x": 71,
+      "y": 36,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "EchelonCityWest_EventScript_BridgeEastSign"
+    }
   ]
 }
