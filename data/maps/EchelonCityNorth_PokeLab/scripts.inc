@@ -49,7 +49,7 @@ EchelonCityNorth_PokeLab_EventScript_ProfessorGoOn:
 	end
 
 EchelonCityNorth_PokeLab_EventScript_ProfessorFreeToGo:
-	msgbox EchelonCityNorth_PokeLab_Text_ProfessorGoOn, MSGBOX_NPC
+	msgbox EchelonCityNorth_PokeLab_Text_ProfessorFreeToGo, MSGBOX_NPC
 	release
 	end
 

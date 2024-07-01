@@ -316,7 +316,6 @@ EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBackStopped:
 	waitmovement 0
 	msgbox EchelonCityWest_Text_NorthBridgeGuardNoTurningBack, MSGBOX_NPC
 	applymovement OBJ_EVENT_ID_PLAYER, EchelonCityWest_Movement_NorthBridgeGuardMoveStoppedPlayer
-	clearflag FLAG_STOPPED_BY_GUARD
 	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
 
 EchelonCityWest_Text_NorthBridgeGuardNoTurningBack:
@@ -330,16 +329,16 @@ EchelonCityWest_Text_NorthBridgeGuardAnswerYes:
 	.string "Well, we'll see if you ever get any\n"
 	.string "farther.\p"
 	.string "Though I doubt it.\p"
-	.string "\p"
-	.string "{PAUSE 120}Well, get going then.$"
+	.string "...\p"
+	.string "Well, get going then.$"
 
 EchelonCityWest_Text_NorthBridgeGuardAnswerNo:
 	.string "Heh. I doubt it.\p"
 	.string "We'll see if you make it anywhere else.\p"
 	.string "You've got spunk, but it's rare for one\n"
 	.string "of you lot to get very far.\p"
-	.string "\p"
-	.string "{PAUSE 120}Well, get going then.$"
+	.string "...\p"
+	.string "Well, get going then.$"
 
 EchelonCityWest_EventScript_NorthBridgeGuardStopsPlayer::
 	setflag FLAG_STOPPED_BY_GUARD
@@ -375,9 +374,10 @@ EchelonCityWest_EventScript_NorthBridgeGuardChecksId::
 EchelonCityWest_Text_NorthBridgeGuardChecksId:
 	.string "Let me check your Trainer ID.\p"
 	.string "...\p"
-	.string "{PAUSE 120}Okay {PLAYER}. You're free to pass.$"
+	.string "Okay {PLAYER}. You're free to pass.$"
 
 EchelonCityWest_EventScript_NorthBridgeGuardReset:
+	clearflag FLAG_STOPPED_BY_GUARD
 	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_SOUTH
 	waitmovement 0
 	releaseall
