@@ -2751,8 +2751,39 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #endif //P_FAMILY_NOSEPASS
 
 #if P_FAMILY_SKITTY
+#define SKITTY_MISC_INFO                                                    \
+        .catchRate = 255,                                                   \
+        .expYield = 52,                                                     \
+        .genderRatio = PERCENT_FEMALE(75),                                  \
+        .eggCycles = 15,                                                    \
+        .friendship = STANDARD_FRIENDSHIP,                                  \
+        .growthRate = GROWTH_FAST,                                          \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                   \
+        .speciesName = _("Skitty"),                                         \
+        .cryId = CRY_SKITTY,                                                \
+        .natDexNum = NATIONAL_DEX_SKITTY,                                   \
+        .categoryName = _("Kitten"),                                        \
+        .footprint = gMonFootprint_Skitty,                                  \
+        .formSpeciesIdTable = sSkittyFormSpeciesIdTable
+
+#define DELCATTY_MISC_INFO                                                  \
+        .catchRate = 60,                                                    \
+        .expYield = 140,                                                    \
+        .genderRatio = PERCENT_FEMALE(75),                                  \
+        .eggCycles = 15,                                                    \
+        .friendship = STANDARD_FRIENDSHIP,                                  \
+        .growthRate = GROWTH_FAST,                                          \
+        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY},                   \
+        .speciesName = _("Delcatty"),                                       \
+        .cryId = CRY_DELCATTY,                                              \
+        .natDexNum = NATIONAL_DEX_DELCATTY,                                 \
+        .categoryName = _("Prim"),                                          \
+        .footprint = gMonFootprint_Delcatty,                                \
+        .formSpeciesIdTable = sDelcattyFormSpeciesIdTable
+
     [SPECIES_SKITTY] =
     {
+        SKITTY_MISC_INFO,
         .baseHP        = 50,
         .baseAttack    = 45,
         .baseDefense   = 45,
@@ -2760,20 +2791,9 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 35,
         .baseSpDefense = 35,
         .types = { TYPE_NORMAL, TYPE_NORMAL },
-        .catchRate = 255,
-        .expYield = 52,
         .evYield_Speed = 1,
-        .genderRatio = PERCENT_FEMALE(75),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_FAST,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY },
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NORMALIZE, ABILITY_WONDER_SKIN },
         .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("Skitty"),
-        .cryId = CRY_SKITTY,
-        .natDexNum = NATIONAL_DEX_SKITTY,
-        .categoryName = _("Kitten"),
         .height = 6,
         .weight = 110,
         .description = COMPOUND_STRING(
@@ -2794,13 +2814,13 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
         PALETTES(Skitty),
         ICON(Skitty, 0),
-        .footprint = gMonFootprint_Skitty,
         LEARNSETS(Skitty),
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_MOON_STONE, SPECIES_DELCATTY}),
     },
 
     [SPECIES_DELCATTY] =
     {
+        DELCATTY_MISC_INFO,
         .baseHP        = 70,
         .baseAttack    = 65,
         .baseDefense   = 65,
@@ -2808,21 +2828,10 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .baseSpAttack  = 55,
         .baseSpDefense = 55,
         .types = { TYPE_NORMAL, TYPE_NORMAL },
-        .catchRate = 60,
-        .expYield = 140,
         .evYield_HP = 1,
         .evYield_Speed = 1,
-        .genderRatio = PERCENT_FEMALE(75),
-        .eggCycles = 15,
-        .friendship = STANDARD_FRIENDSHIP,
-        .growthRate = GROWTH_FAST,
-        .eggGroups = { EGG_GROUP_FIELD, EGG_GROUP_FAIRY },
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NORMALIZE, ABILITY_WONDER_SKIN },
         .bodyColor = BODY_COLOR_PURPLE,
-        .speciesName = _("Delcatty"),
-        .cryId = CRY_DELCATTY,
-        .natDexNum = NATIONAL_DEX_DELCATTY,
-        .categoryName = _("Prim"),
         .height = 11,
         .weight = 326,
         .description = COMPOUND_STRING(
@@ -2843,9 +2852,162 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
         .backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
         PALETTES(Delcatty),
         ICON(Delcatty, 2),
-        .footprint = gMonFootprint_Delcatty,
         LEARNSETS(Delcatty),
     },
+
+#if P_CASTERIAN_FORMS
+    [SPECIES_SKITTY_CASTERIAN_FERAL] =
+    {
+        SKITTY_MISC_INFO,
+        .baseHP        = 50,
+        .baseAttack    = 50,
+        .baseDefense   = 40,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 40,
+        .baseSpDefense = 30,
+        .types = { TYPE_DARK, TYPE_DARK },
+        .evYield_Attack = 1,
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_HUSTLE, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_BLACK,
+        .height = 6,
+        .weight = 110,
+        .description = COMPOUND_STRING(
+            "A Skitty's adorably cute behavior makes it\n"
+            "highly popular. In battle, it makes its tail\n"
+            "puff out. It threatens foes with a sharp\n"
+            "growl."),
+        .pokemonScale = 492,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(SkittyCasterianFeral, 56, 40),
+        .frontPicYOffset = 12,
+        .frontAnimFrames = sAnims_SkittyCasterianFeral,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(SkittyCasterianFeral, 64, 56),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+        PALETTES(SkittyCasterianFeral),
+        ICON(SkittyCasterianFeral, 0),
+        LEARNSETS(SkittyCasterianFeral),
+        .isCasterianForm = TRUE,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_MOON_STONE, SPECIES_DELCATTY_CASTERIAN_FERAL}),
+    },
+
+    [SPECIES_DELCATTY_CASTERIAN_FERAL] =
+    {
+        DELCATTY_MISC_INFO,
+        .baseHP        = 70,
+        .baseAttack    = 70,
+        .baseDefense   = 60,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 60,
+        .baseSpDefense = 50,
+        .types = { TYPE_DARK, TYPE_DARK },
+        .evYield_Attack = 1,
+        .evYield_Speed = 1,
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_HUSTLE, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_BLACK,
+        .height = 11,
+        .weight = 326,
+        .description = COMPOUND_STRING(
+            "Rather than keeping a permanent lair,\n"
+            "it habitually seeks comfortable spots and\n"
+            "sleeps there. It is nocturnal and becomes\n"
+            "active at dusk."),
+        .pokemonScale = 322,
+        .pokemonOffset = 10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(DelcattyCasterianFeral, 56, 56),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_DelcattyCasterianFeral,
+        //.frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(DelcattyCasterianFeral, 64, 64),
+        .backPicYOffset = 0,
+        //.backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
+        PALETTES(DelcattyCasterianFeral),
+        ICON(DelcattyCasterianFeral, 0),
+        LEARNSETS(DelcattyCasterianFeral),
+        .isCasterianForm = TRUE,
+    },
+
+    [SPECIES_SKITTY_CASTERIAN_DOMESTIC] =
+    {
+        SKITTY_MISC_INFO,
+        .baseHP        = 50,
+        .baseAttack    = 40,
+        .baseDefense   = 50,
+        .baseSpeed     = 50,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 40,
+        .types = { TYPE_FAIRY, TYPE_FAIRY },
+        .evYield_SpAttack = 1,
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_MOODY, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_PINK,
+        .height = 6,
+        .weight = 110,
+        .description = COMPOUND_STRING(
+            "A Skitty's adorably cute behavior makes it\n"
+            "highly popular. In battle, it makes its tail\n"
+            "puff out. It threatens foes with a sharp\n"
+            "growl."),
+        .pokemonScale = 492,
+        .pokemonOffset = 19,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(SkittyCasterianDomestic, 56, 40),
+        .frontPicYOffset = 12,
+        .frontAnimFrames = sAnims_SkittyCasterianDomestic,
+        //.frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
+        BACK_PIC(SkittyCasterianDomestic, 64, 56),
+        .backPicYOffset = 6,
+        //.backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
+        PALETTES(SkittyCasterianDomestic),
+        ICON(SkittyCasterianDomestic, 1),
+        LEARNSETS(SkittyCasterianDomestic),
+        .isCasterianForm = TRUE,
+        .evolutions = EVOLUTION({EVO_ITEM, ITEM_MOON_STONE, SPECIES_DELCATTY_CASTERIAN_DOMESTIC}),
+    },
+
+    [SPECIES_DELCATTY_CASTERIAN_DOMESTIC] =
+    {
+        DELCATTY_MISC_INFO,
+        .baseHP        = 70,
+        .baseAttack    = 60,
+        .baseDefense   = 70,
+        .baseSpeed     = 90,
+        .baseSpAttack  = 50,
+        .baseSpDefense = 60,
+        .types = { TYPE_FAIRY, TYPE_FAIRY },
+        .evYield_SpAttack = 1,
+        .evYield_Speed = 1,
+        .abilities = { ABILITY_CUTE_CHARM, ABILITY_MOODY, ABILITY_ADAPTABILITY },
+        .bodyColor = BODY_COLOR_PINK,
+        .height = 11,
+        .weight = 326,
+        .description = COMPOUND_STRING(
+            "Rather than keeping a permanent lair,\n"
+            "it habitually seeks comfortable spots and\n"
+            "sleeps there. It is nocturnal and becomes\n"
+            "active at dusk."),
+        .pokemonScale = 322,
+        .pokemonOffset = 10,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        FRONT_PIC(DelcattyCasterianDomestic, 56, 56),
+        .frontPicYOffset = 4,
+        .frontAnimFrames = sAnims_DelcattyCasterianDomestic,
+        //.frontAnimId = ANIM_V_STRETCH,
+        BACK_PIC(DelcattyCasterianDomestic, 64, 64),
+        .backPicYOffset = 0,
+        //.backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
+        PALETTES(DelcattyCasterianDomestic),
+        ICON(DelcattyCasterianDomestic, 1),
+        LEARNSETS(DelcattyCasterianDomestic),
+        .isCasterianForm = TRUE,
+    },
+#endif //P_CASTERIAN_FORMS
 #endif //P_FAMILY_SKITTY
 
 #if P_FAMILY_SABLEYE

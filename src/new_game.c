@@ -45,6 +45,7 @@
 #include "mystery_gift.h"
 #include "union_room_chat.h"
 #include "constants/items.h"
+#include "script_pokemon_util.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
 
@@ -132,8 +133,14 @@ static void WarpToTruck(void)
     }
     else
     {
-        SetWarpDestination(MAP_GROUP(ECHELON_CITY_NORTH), MAP_NUM(ECHELON_CITY_NORTH), WARP_ID_NONE, 46, 20);
+        SetWarpDestination(MAP_GROUP(ECHELON_CITY_NORTH_POKE_LAB), MAP_NUM(ECHELON_CITY_NORTH_POKE_LAB), WARP_ID_NONE, 11, 14);
         VarSet(VAR_ECHELON_CITY_WEST_STATE, 5);
+        VarSet(VAR_ECHELON_CITY_NORTH_LAB_STATE, 2);
+        VarSet(VAR_ECHELON_CITY_NORTH_STATE, 2);
+        FlagSet(FLAG_ENTERED_LAB);
+        FlagSet(FLAG_RECEIVED_STARTER);
+        FlagSet(FLAG_SYS_POKEMON_GET);
+        ScriptGiveMon(SPECIES_SHARPUGGLE, 5, ITEM_NONE, 0, 0, 0);
     }
     WarpIntoMap();
 }

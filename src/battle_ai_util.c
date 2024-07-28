@@ -2252,6 +2252,7 @@ bool32 IsChargingMove(u32 battlerAtk, u32 effect)
             return FALSE;
     case EFFECT_SKULL_BASH:
     case EFFECT_METEOR_BEAM:
+    case EFFECT_PENDULUM_RUSH:
     case EFFECT_TWO_TURNS_ATTACK:
         if (AI_DATA->holdEffects[battlerAtk] == HOLD_EFFECT_POWER_HERB)
             return FALSE;

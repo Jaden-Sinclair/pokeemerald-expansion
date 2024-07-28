@@ -1761,3 +1761,19 @@ static const u16 sOgerponFormSpeciesIdTable[] = {
     FORM_SPECIES_END,
 };
 #endif //P_FAMILY_OGERPON
+
+#if P_FAMILY_SKITTY
+static const u16 sSkittyFormSpeciesIdTable[] = {
+    SPECIES_SKITTY,
+    SPECIES_SKITTY_CASTERIAN_FERAL,
+    SPECIES_SKITTY_CASTERIAN_DOMESTIC,
+    FORM_SPECIES_END,
+};
+
+static const u16 sDelcattyFormSpeciesIdTable[] = {
+    SPECIES_DELCATTY,
+    SPECIES_DELCATTY_CASTERIAN_FERAL,
+    SPECIES_DELCATTY_CASTERIAN_DOMESTIC,
+    FORM_SPECIES_END,
+};
+#endif //P_FAMILY_SKITTY

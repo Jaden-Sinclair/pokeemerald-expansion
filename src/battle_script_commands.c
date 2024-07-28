@@ -316,7 +316,7 @@ static const s32 sExperienceScalingFactors[] =
 
 static const u16 sTrappingMoves[NUM_TRAPPING_MOVES] =
 {
-    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, MOVE_SNAP_TRAP,
+    MOVE_BIND, MOVE_WRAP, MOVE_FIRE_SPIN, MOVE_CLAMP, MOVE_WHIRLPOOL, MOVE_SAND_TOMB, MOVE_MAGMA_STORM, MOVE_INFESTATION, MOVE_SNAP_TRAP, MOVE_THUNDER_CAGE, MOVE_WAVECRASH_JAWS,
 };
 
 static const u16 sBadgeFlags[8] = {
@@ -906,6 +906,7 @@ static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
     [MOVE_EFFECT_PREVENT_ESCAPE] = STATUS2_ESCAPE_PREVENTION,
     [MOVE_EFFECT_NIGHTMARE]      = STATUS2_NIGHTMARE,
     [MOVE_EFFECT_THRASH]         = STATUS2_LOCK_CONFUSE,
+    [MOVE_EFFECT_INFATUATE]      = STATUS2_INFATUATION,
 };
 
 static const u8 *const sMoveEffectBS_Ptrs[] =
@@ -921,6 +922,7 @@ static const u8 *const sMoveEffectBS_Ptrs[] =
     [MOVE_EFFECT_PAYDAY]           = BattleScript_MoveEffectPayDay,
     [MOVE_EFFECT_WRAP]             = BattleScript_MoveEffectWrap,
     [MOVE_EFFECT_FROSTBITE]        = BattleScript_MoveEffectFrostbite,
+    [MOVE_EFFECT_INFATUATE]        = BattleScript_MoveEffectInfatuate,
 };
 
 static const struct WindowTemplate sUnusedWinTemplate =
@@ -2118,11 +2120,11 @@ END:
     if (gBattleWeather & B_WEATHER_STRONG_WINDS)
     {
         if ((GetBattlerType(gBattlerTarget, 0) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 0)) >= UQ_4_12(2.0))
+         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 0), 0) >= UQ_4_12(2.0))
          || (GetBattlerType(gBattlerTarget, 1) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 1)) >= UQ_4_12(2.0))
+         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 1), 0) >= UQ_4_12(2.0))
          || (GetBattlerType(gBattlerTarget, 2) == TYPE_FLYING
-         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2)) >= UQ_4_12(2.0)))
+         && GetTypeModifier(moveType, GetBattlerType(gBattlerTarget, 2), 0) >= UQ_4_12(2.0)))
         {
             gBattlerAbility = gBattlerTarget;
             BattleScriptPushCursor();
@@ -2465,6 +2467,7 @@ static void Cmd_effectivenesssound(void)
         case MOVE_RESULT_ONE_HIT_KO:
         case MOVE_RESULT_FOE_HUNG_ON:
         case MOVE_RESULT_STURDIED:
+        case MOVE_RESULT_NO_ADDITIONAL_EFFECT:
         default:
             if (gMoveResultFlags & MOVE_RESULT_SUPER_EFFECTIVE)
             {
@@ -2542,6 +2545,9 @@ static void Cmd_resultmessage(void)
             break;
         case MOVE_RESULT_FAILED:
             stringId = STRINGID_BUTITFAILED;
+            break;
+        case MOVE_RESULT_NO_ADDITIONAL_EFFECT:
+            stringId = STRINGID_NOADDITIONALEFFECT;
             break;
         case MOVE_RESULT_DOESNT_AFFECT_FOE:
             stringId = STRINGID_ITDOESNTAFFECT;
@@ -3244,6 +3250,12 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     }
                 }
                 break;
+            case MOVE_EFFECT_INFATUATE:
+                gBattleMons[gEffectBattler].status2 |= STATUS2_INFATUATED_WITH(gBattleScripting.battler);
+
+                BattleScriptPush(gBattlescriptCurrInstr + 1);
+                gBattlescriptCurrInstr = sMoveEffectBS_Ptrs[gBattleScripting.moveEffect];
+                break;
             case MOVE_EFFECT_ATK_PLUS_1:
             case MOVE_EFFECT_DEF_PLUS_1:
             case MOVE_EFFECT_SPD_PLUS_1:
@@ -3603,6 +3615,21 @@ void SetMoveEffect(bool32 primary, u32 certain)
                     MarkBattlerForControllerExec(gEffectBattler);
                     BattleScriptPush(gBattlescriptCurrInstr + 1);
                     gBattlescriptCurrInstr = BattleScript_MoveEffectBugBite;
+                }
+                break;
+            case MOVE_EFFECT_GORGE:
+                if (ItemId_GetPocket(gBattleMons[gEffectBattler].item) == POCKET_BERRIES
+                    && battlerAbility != ABILITY_STICKY_HOLD)
+                {
+                    // target loses their berry
+                    gLastUsedItem = gBattleMons[gEffectBattler].item;
+                    gBattleMons[gEffectBattler].item = 0;
+                    CheckSetUnburden(gEffectBattler);
+
+                    BtlController_EmitSetMonData(gEffectBattler, BUFFER_A, REQUEST_HELDITEM_BATTLE, 0, sizeof(gBattleMons[gEffectBattler].item), &gBattleMons[gEffectBattler].item);
+                    MarkBattlerForControllerExec(gEffectBattler);
+                    BattleScriptPush(gBattlescriptCurrInstr + 1);
+                    gBattlescriptCurrInstr = BattleScript_MoveEffectGorge;
                 }
                 break;
             case MOVE_EFFECT_TRAP_BOTH:
@@ -11063,6 +11090,21 @@ static void Cmd_stockpile(void)
             gDisableStructs[gBattlerAttacker].stockpileSpDef += gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF] - gDisableStructs[gBattlerAttacker].stockpileBeforeSpDef;
         }
         break;
+    case 2: // Stockpile multiple times.
+        if (gDisableStructs[gBattlerAttacker].stockpileCounter >= 3)
+        {
+            gMoveResultFlags |= MOVE_RESULT_MISSED;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STOCKPILED;
+        }
+        else
+        {
+            gDisableStructs[gBattlerAttacker].stockpileCounter++;
+            gDisableStructs[gBattlerAttacker].stockpileBeforeDef = gBattleMons[gBattlerAttacker].statStages[STAT_DEF];
+            gDisableStructs[gBattlerAttacker].stockpileBeforeSpDef = gBattleMons[gBattlerAttacker].statStages[STAT_SPDEF];
+            PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff1, 1, gDisableStructs[gBattlerAttacker].stockpileCounter);
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STOCKPILED;
+        }
+        break;
     }
 
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -12566,7 +12608,7 @@ static void Cmd_settypetorandomresistance(void)
 
         for (i = 0; i < NUMBER_OF_MON_TYPES; i++) // Find all types that resist.
         {
-            switch (GetTypeModifier(hitByType, i))
+            switch (GetTypeModifier(hitByType, i, 0))
             {
             case UQ_4_12(0):
             case UQ_4_12(0.5):

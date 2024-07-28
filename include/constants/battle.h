@@ -275,6 +275,7 @@
 #define MOVE_RESULT_FOE_HUNG_ON           (1 << 7)
 #define MOVE_RESULT_STURDIED              (1 << 8)
 #define MOVE_RESULT_FOE_ENDURED_AFFECTION (1 << 9)
+#define MOVE_RESULT_NO_ADDITIONAL_EFFECT  (1 << 10)
 #define MOVE_RESULT_NO_EFFECT             (MOVE_RESULT_MISSED | MOVE_RESULT_DOESNT_AFFECT_FOE | MOVE_RESULT_FAILED)
 
 // Battle Weather flags
@@ -393,8 +394,10 @@
 #define MOVE_EFFECT_TRIPLE_ARROWS       77
 #define MOVE_EFFECT_SYRUP_BOMB          78
 #define MOVE_EFFECT_FLORAL_HEALING      79
+#define MOVE_EFFECT_GORGE               80
+#define MOVE_EFFECT_INFATUATE           81
 
-#define NUM_MOVE_EFFECTS                80
+#define NUM_MOVE_EFFECTS                82
 
 #define MOVE_EFFECT_AFFECTS_USER        0x4000
 #define MOVE_EFFECT_CERTAIN             0x8000

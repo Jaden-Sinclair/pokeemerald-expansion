@@ -15223,6 +15223,20 @@ static const u16 sDelcattyTeachableLearnset[] = {
     MOVE_THUNDER_WAVE,
     MOVE_UNAVAILABLE,
 };
+#if P_CASTERIAN_FORMS
+static const u16 sSkittyCasterianFeralTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sSkittyCasterianDomesticTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sDelcattyCasterianFeralTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sDelcattyCasterianDomesticTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_CASTERIAN_FORMS
 #endif //P_FAMILY_SKITTY
 
 #if P_FAMILY_SABLEYE
@@ -39020,3 +39034,54 @@ static const u16 sTuscourgeTeachableLearnset[] = {
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_PACHYDENT
+
+#if P_FAMILY_MARMOSCAMP
+static const u16 sMarmoscampTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sVermarinTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sFoolemurTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_MARMOSCAMP
+
+#if P_FAMILY_AMPIGEON
+static const u16 sAmpigeonTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sSquaboltTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sPigenerateTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_AMPIGEON
+
+#if P_FAMILY_TOCKTICK
+static const u16 sTocktickTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sClockroachTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_TOCKTICK
+
+#if P_FAMILY_GLEAMITE
+static const u16 sGleamiteTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sGlitterflyTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_GLEAMITE
+
+#if P_FAMILY_HIBISCUTIE
+static const u16 sHibiscutieTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+static const u16 sDracosnapTeachableLearnset[] = {
+    MOVE_UNAVAILABLE,
+};
+#endif //P_FAMILY_HIBISCUTIE

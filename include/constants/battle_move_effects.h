@@ -420,7 +420,12 @@
 #define EFFECT_RAGING_BULL                  414
 #define EFFECT_RAGE_FIST                    415
 #define EFFECT_QUILL_BARRAGE                416
+#define EFFECT_BURNING_PASSION              417
+#define EFFECT_GORGE                        418
+#define EFFECT_BLOAT_TACKLE                 419
+#define EFFECT_FEAST                        420
+#define EFFECT_PENDULUM_RUSH                421
 
-#define NUM_BATTLE_MOVE_EFFECTS             417
+#define NUM_BATTLE_MOVE_EFFECTS             422
 
 #endif  // GUARD_CONSTANTS_BATTLE_MOVE_EFFECTS_H

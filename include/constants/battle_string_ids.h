@@ -696,8 +696,12 @@
 #define STRINGID_SWAMPENVELOPEDSIDE                   694
 #define STRINGID_THESWAMPDISAPPEARED                  695
 #define STRINGID_PKMNTELLCHILLINGRECEPTIONJOKE        696
+#define STRINGID_NOADDITIONALEFFECT                   697
+#define STRINGID_WAVECRASSHJAWSTRAPPED                698
+#define STRINGID_PKMNSTARTSEATING                     699
+#define STRINGID_PKMNSWINGSBACK                       700
 
-#define BATTLESTRINGS_COUNT                           697
+#define BATTLESTRINGS_COUNT                           701 //Why isn't this working??
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -755,6 +759,8 @@
 #define B_MSG_TURN1_FREEZE_SHOCK   10
 #define B_MSG_TURN1_SKY_DROP       11
 #define B_MSG_TURN1_METEOR_BEAM    12
+#define B_MSG_TURN1_FEAST          13
+#define B_MSG_TURN1_PENDULUM_RUSH  14
 
 // gMoveWeatherChangeStringIds
 #define B_MSG_STARTED_RAIN      0
@@ -976,17 +982,18 @@
 #define B_MSG_TERRAIN_COUNT         8
 
 // gWrappedStringIds
-#define B_MSG_WRAPPED_BIND         0
-#define B_MSG_WRAPPED_WRAP         1
-#define B_MSG_WRAPPED_FIRE_SPIN    2
-#define B_MSG_WRAPPED_CLAMP        3
-#define B_MSG_WRAPPED_WHIRLPOOL    4
-#define B_MSG_WRAPPED_SAND_TOMB    5
-#define B_MSG_WRAPPED_MAGMA_STORM  6
-#define B_MSG_WRAPPED_INFESTATION  7
-#define B_MSG_WRAPPED_SNAP_TRAP    8
-#define B_MSG_WRAPPED_THUNDER_CAGE 9
-#define NUM_TRAPPING_MOVES         10
+#define B_MSG_WRAPPED_BIND           0
+#define B_MSG_WRAPPED_WRAP           1
+#define B_MSG_WRAPPED_FIRE_SPIN      2
+#define B_MSG_WRAPPED_CLAMP          3
+#define B_MSG_WRAPPED_WHIRLPOOL      4
+#define B_MSG_WRAPPED_SAND_TOMB      5
+#define B_MSG_WRAPPED_MAGMA_STORM    6
+#define B_MSG_WRAPPED_INFESTATION    7
+#define B_MSG_WRAPPED_SNAP_TRAP      8
+#define B_MSG_WRAPPED_THUNDER_CAGE   9
+#define B_MSG_WRAPPED_WAVECRASH_JAWS 10
+#define NUM_TRAPPING_MOVES           11
 
 // z effects
 #define B_MSG_Z_RESET_STATS   0

@@ -14711,7 +14711,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
 
     [MOVE_QUILL_BARRAGE] =
     {
-        .power = 5,
+        .power = 20,
         .accuracy = 95,
         .effect = EFFECT_QUILL_BARRAGE,
         .type = TYPE_GRASS,
@@ -14721,6 +14721,139 @@ const struct BattleMove gBattleMoves[MOVES_COUNT_DYNAMAX] =
         .priority = 0,
         .split = SPLIT_PHYSICAL,
         .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+    },
+
+    [MOVE_BURNING_PASSION] =
+    {
+        .power = 80,
+        .accuracy = 100,
+        .effect = EFFECT_BURNING_PASSION,
+        .type = TYPE_FIRE,
+        .pp = 10,
+        .secondaryEffectChance = 30,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .sheerForceBoost = TRUE,
+        .thawsUser = TRUE,
+    },
+
+    [MOVE_WAVECRASH_JAWS] =
+    {
+        .power = 75,
+        .accuracy = 85,
+        .effect = EFFECT_TRAP,
+        .type = TYPE_WATER,
+        .pp = 10,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .sheerForceBoost = TRUE,
+        .bitingMove = TRUE,
+        .minimizeDoubleDamage = TRUE,
+    },
+
+    [MOVE_GORGE] =
+    {
+        .power = 60,
+        .accuracy = 100,
+        .effect = EFFECT_GORGE,
+        .type = TYPE_NORMAL,
+        .pp = 20,
+        .secondaryEffectChance = 100,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_BLOAT_TACKLE] =
+    {
+        .power = 25,
+        .accuracy = 100,
+        .effect = EFFECT_BLOAT_TACKLE,
+        .type = TYPE_NORMAL,
+        .pp = 20,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+    },
+
+    [MOVE_FEAST] =
+    {
+        .power = 0,
+        .accuracy = 0,
+        .effect = EFFECT_FEAST,
+        .type = TYPE_NORMAL,
+        .pp = 5,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_USER,
+        .priority = 0,
+        .split = SPLIT_STATUS,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .twoTurnMove = TRUE,
+        .ignoresProtect = TRUE,
+        .snatchAffected = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+    },
+
+    [MOVE_GLIMMER_SHOT] =
+    {
+        .power = 75,
+        .accuracy = 100,
+        .effect = EFFECT_HIT,
+        .type = TYPE_BUG,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_SPECIAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+    },
+
+    [MOVE_PENDULUM_RUSH] =
+    {
+        .power = 60,
+        .accuracy = 100,
+        .effect = EFFECT_PENDULUM_RUSH,
+        .type = TYPE_STEEL,
+        .pp = 15,
+        .secondaryEffectChance = 0,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .twoTurnMove = TRUE,
+        .makesContact = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+    },
+
+    [MOVE_BONK] =
+    {
+        .power = 50,
+        .accuracy = 100,
+        .effect = EFFECT_DEFENSE_DOWN_HIT,
+        .type = TYPE_FAIRY,
+        .pp = 20,
+        .secondaryEffectChance = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .split = SPLIT_PHYSICAL,
+        .zMoveEffect = Z_EFFECT_NONE,
+        .makesContact = TRUE,
+        .sheerForceBoost = TRUE,
     },
 
     // Z-Moves

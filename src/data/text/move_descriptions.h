@@ -3336,6 +3336,38 @@ static const u8 sQuillBarrageDescription[] = _(
     "Launches quills 2 to 5 twice\n"
     "and leaves spikes behind.");
 
+static const u8 sBurningPassionDescription[] = _(
+    "Beautiful flames which may\n"
+    "infatuate the target.");
+
+static const u8 sWavecrashJawsDescription[] = _(
+    "The target is trapped and\n"
+    "continuously crushed.");
+
+static const u8 sGorgeDescription[] = _(
+    "If the foe has a berry, the\n"
+    "user eats it and stockpiles.");
+
+static const u8 sBloatTackleDescription[] = _(
+    "Deals more damage the fuller\n"
+    "the user is.");
+
+static const u8 sFeastDescription[] = _(
+    "Spends a turn eating, then\n"
+    "fully stockpiles.");
+
+static const u8 sGlimmerShotDescription[] = _(
+    "A rainbow beam with type\n"
+    "effectiveness reversed.");
+
+static const u8 sPendulumRushDescription[] = _(
+    "The user swings back, then\n"
+    "rushes forward.");
+
+static const u8 sBonkDescription[] = _(
+    "Adorably headbutts the foe.\n"
+    "May lower defense.");
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -4195,4 +4227,12 @@ const u8 *const gMoveDescriptionPointers[MOVES_COUNT - 1] =
     [MOVE_UPPER_HAND - 1] = sUpperHandDescription,
     [MOVE_MALIGNANT_CHAIN - 1] = sMalignantChainDescription,
     [MOVE_QUILL_BARRAGE - 1] = sQuillBarrageDescription,
+    [MOVE_BURNING_PASSION - 1] = sBurningPassionDescription,
+    [MOVE_WAVECRASH_JAWS - 1] = sWavecrashJawsDescription,
+    [MOVE_GORGE - 1] = sGorgeDescription,
+    [MOVE_BLOAT_TACKLE - 1] = sBloatTackleDescription,
+    [MOVE_FEAST - 1] = sFeastDescription,
+    [MOVE_GLIMMER_SHOT - 1] = sGlimmerShotDescription,
+    [MOVE_PENDULUM_RUSH - 1] = sPendulumRushDescription,
+    [MOVE_BONK - 1] = sBonkDescription,
 };

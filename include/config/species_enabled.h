@@ -36,6 +36,7 @@
 #define P_GALARIAN_FORMS                 P_REGIONAL_FORMS
 #define P_HISUIAN_FORMS                  P_REGIONAL_FORMS
 #define P_PALDEAN_FORMS                  P_REGIONAL_FORMS
+#define P_CASTERIAN_FORMS                P_REGIONAL_FORMS
 
 // Big groups of forms that aren't always desired when choosing families.
 #define P_PIKACHU_EXTRA_FORMS            TRUE
@@ -605,5 +606,17 @@
 #define P_FAMILY_PACHYDENT               P_GEN_10_POKEMON
 #define P_FAMILY_HIPPUGIL                P_GEN_10_POKEMON
 #define P_FAMILY_TUSCOURGE               P_GEN_10_POKEMON
+#define P_FAMILY_MARMOSCAMP              P_GEN_10_POKEMON
+#define P_FAMILY_VERMARIN                P_GEN_10_POKEMON
+#define P_FAMILY_FOOLEMUR                P_GEN_10_POKEMON
+#define P_FAMILY_AMPIGEON                P_GEN_10_POKEMON
+#define P_FAMILY_SQUABOLT                P_GEN_10_POKEMON
+#define P_FAMILY_PIGENERATE              P_GEN_10_POKEMON
+#define P_FAMILY_TOCKTICK                P_GEN_10_POKEMON
+#define P_FAMILY_CLOCKROACH              P_GEN_10_POKEMON
+#define P_FAMILY_GLEAMITE                P_GEN_10_POKEMON
+#define P_FAMILY_GLITTERFLY              P_GEN_10_POKEMON
+#define P_FAMILY_HIBISCUTIE              P_GEN_10_POKEMON
+#define P_FAMILY_DRACOSNAP               P_GEN_10_POKEMON
 
 #endif // GUARD_CONFIG_SPECIES_ENABLED_H

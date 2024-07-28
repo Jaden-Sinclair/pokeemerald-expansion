@@ -8485,6 +8485,19 @@ u32 CountBattlerStatIncreases(u32 battler, bool32 countEvasionAcc)
     return count;
 }
 
+u32 CountBattlerDefSpDefIncreases(u32 battler)
+{
+    u32 count = 0;
+
+    if (gBattleMons[battler].statStages[STAT_DEF] > DEFAULT_STAT_STAGE) // Stat is increased.
+            count += gBattleMons[battler].statStages[STAT_DEF] - DEFAULT_STAT_STAGE;
+
+    if (gBattleMons[battler].statStages[STAT_SPDEF] > DEFAULT_STAT_STAGE) // Stat is increased.
+            count += gBattleMons[battler].statStages[STAT_SPDEF] - DEFAULT_STAT_STAGE;
+
+    return count;
+}
+
 u32 GetMoveTargetCount(u32 move, u32 battlerAtk, u32 battlerDef)
 {
     switch (GetBattlerMoveTargetType(gBattlerAttacker, move))
@@ -8864,6 +8877,12 @@ static inline u32 CalcMoveBasePower(u32 move, u32 battlerAtk, u32 battlerDef, u3
     case EFFECT_RAGE_FIST:
         basePower += 50 * gBattleStruct->timesGotHit[GetBattlerSide(battlerAtk)][gBattlerPartyIndexes[battlerAtk]];
         basePower = (basePower > 350) ? 350 : basePower;
+        break;
+    case EFFECT_BLOAT_TACKLE:
+        basePower = 25 * (gDisableStructs[battlerAtk].stockpileCounter + 1);
+        break;
+    case EFFECT_PENDULUM_RUSH:
+        basePower = 60 + (CountBattlerDefSpDefIncreases(battlerAtk) * 10);
         break;
     }
 
@@ -9984,7 +10003,9 @@ s32 CalculateMoveDamageVars(u32 move, u32 battlerAtk, u32 battlerDef, u32 moveTy
 
 static inline void MulByTypeEffectiveness(uq4_12_t *modifier, u32 move, u32 moveType, u32 battlerDef, u32 defType, u32 battlerAtk, bool32 recordAbilities)
 {
-    uq4_12_t mod = GetTypeModifier(moveType, defType);
+    uq4_12_t mod;
+
+    mod = GetTypeModifier(moveType, defType, move);
 
     if (mod == UQ_4_12(0.0) && GetBattlerHoldEffect(battlerDef, TRUE) == HOLD_EFFECT_RING_TARGET)
     {
@@ -10175,9 +10196,9 @@ static uq4_12_t GetInverseTypeMultiplier(uq4_12_t multiplier)
     }
 }
 
-uq4_12_t GetTypeModifier(u32 atkType, u32 defType)
+uq4_12_t GetTypeModifier(u32 atkType, u32 defType, u32 move)
 {
-    if (B_FLAG_INVERSE_BATTLE != 0 && FlagGet(B_FLAG_INVERSE_BATTLE))
+    if ((B_FLAG_INVERSE_BATTLE != 0 && FlagGet(B_FLAG_INVERSE_BATTLE)) || move == MOVE_GLIMMER_SHOT)
         return GetInverseTypeMultiplier(sTypeEffectivenessTable[atkType][defType]);
     return sTypeEffectivenessTable[atkType][defType];
 }
@@ -10187,9 +10208,9 @@ s32 GetStealthHazardDamageByTypesAndHP(u8 hazardType, u8 type1, u8 type2, u32 ma
     s32 dmg = 0;
     uq4_12_t modifier = UQ_4_12(1.0);
 
-    modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type1));
+    modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type1, 0));
     if (type2 != type1)
-        modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type2));
+        modifier = uq4_12_multiply(modifier, GetTypeModifier(hazardType, type2, 0));
 
     switch (modifier)
     {

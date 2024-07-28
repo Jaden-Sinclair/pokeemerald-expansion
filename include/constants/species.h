@@ -1681,8 +1681,25 @@
 #define SPECIES_PACHYDENT                               GEN10_START + 7
 #define SPECIES_HIPPUGIL                                GEN10_START + 8
 #define SPECIES_TUSCOURGE                               GEN10_START + 9
+#define SPECIES_MARMOSCAMP                              GEN10_START + 10
+#define SPECIES_VERMARIN                                GEN10_START + 11
+#define SPECIES_FOOLEMUR                                GEN10_START + 12
+#define SPECIES_AMPIGEON                                GEN10_START + 13
+#define SPECIES_SQUABOLT                                GEN10_START + 14
+#define SPECIES_PIGENERATE                              GEN10_START + 15
+#define SPECIES_TOCKTICK                                GEN10_START + 16
+#define SPECIES_CLOCKROACH                              GEN10_START + 17
+#define SPECIES_GLEAMITE                                GEN10_START + 18
+#define SPECIES_GLITTERFLY                              GEN10_START + 19
+#define SPECIES_HIBISCUTIE                              GEN10_START + 20
+#define SPECIES_DRACOSNAP                               GEN10_START + 21
+// Casterian Forms
+#define SPECIES_SKITTY_CASTERIAN_FERAL                  GEN10_START + 22
+#define SPECIES_DELCATTY_CASTERIAN_FERAL                GEN10_START + 23
+#define SPECIES_SKITTY_CASTERIAN_DOMESTIC               GEN10_START + 24
+#define SPECIES_DELCATTY_CASTERIAN_DOMESTIC             GEN10_START + 25
 
-#define PLACEHOLDER_START                               SPECIES_TUSCOURGE
+#define PLACEHOLDER_START                               SPECIES_DELCATTY_CASTERIAN_DOMESTIC
 // XD: Gale of Darkness
 #define SPECIES_LUGIA_SHADOW                            PLACEHOLDER_START + 1
 // Diamond & Pearl

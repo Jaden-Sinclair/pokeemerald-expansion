@@ -877,6 +877,14 @@ gBattleAnims_Moves::
 	.4byte Move_MALIGNANT_CHAIN
 @@@@@@@@@@@@ GEN 10 @@@@@@@@@@@@
 	.4byte Move_QUILL_BARRAGE
+	.4byte Move_BURNING_PASSION
+	.4byte Move_WAVECRASH_JAWS
+	.4byte Move_GORGE
+	.4byte Move_BLOAT_TACKLE
+	.4byte Move_FEAST
+	.4byte Move_GLIMMER_SHOT
+	.4byte Move_PENDULUM_RUSH
+	.4byte Move_BONK
 @@@@ Z MOVES
 	.4byte Move_BREAKNECK_BLITZ
 	.4byte Move_ALL_OUT_PUMMELING
@@ -26557,6 +26565,93 @@ Move_QUILL_BARRAGE:
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
+
+Move_BURNING_PASSION:
+	goto Move_FLAMETHROWER
+
+Move_WAVECRASH_JAWS:
+	loadspritegfx ANIM_TAG_SHARP_TEETH
+	loadspritegfx ANIM_TAG_IMPACT
+	monbg ANIM_TARGET
+	setalpha 12, 8
+	playsewithpan SE_M_BITE, SOUND_PAN_TARGET
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 0, -32, 0, 0, 819, 10
+	createsprite gSharpTeethSpriteTemplate, ANIM_ATTACKER, 2, 0, 32, 4, 0, -819, 10
+	delay 10
+	createsprite gBasicHitSplatSpriteTemplate, ANIM_ATTACKER, 2, 0, 0, ANIM_TARGET, 2
+	createvisualtask AnimTask_ShakeMon, 5, ANIM_TARGET, 0, 4, 7, 1
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	delay 1
+	createvisualtask AnimTask_TranslateMonEllipticalRespectSide, 2, ANIM_ATTACKER, 6, 4, 2, 4
+	goto BindWrap
+
+Move_GORGE:
+	goto Move_BITE
+
+Move_BLOAT_TACKLE:
+	goto Move_SLAM
+
+Move_FEAST:
+	goto General_HeldItemEffect
+
+Move_GLIMMER_SHOT:
+	loadspritegfx ANIM_TAG_RAINBOW_RINGS
+	playsewithpan SE_M_BUBBLE_BEAM, SOUND_PAN_ATTACKER
+	setarg 7, 0
+	createvisualtask AnimTask_RotateAuroraRingColors, 10, 130
+	call AuroraBeamCreateRings
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 1, 0, 17, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	setarg 7, 0xFFFF
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_BUBBLE_BEAM2, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 3, 6, 0, 10
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_TARGET, 2, 0, 40, 1
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	call AuroraBeamCreateRings
+	waitforvisualfinish
+	end
+
+Move_PENDULUM_RUSH:
+	choosetwoturnanim PendulumRushSetUp, PendulumRushAttack
+PendulumRushEnd:
+	end
+PendulumRushSetUp:
+	call PendulumRushSetUpHeadDown
+	waitforvisualfinish
+	goto PendulumRushEnd
+PendulumRushSetUpHeadDown:
+	createsprite gSlideMonToOffsetAndBackSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, -24, 0, 0, 10, 0
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	createvisualtask AnimTask_RotateMonSpriteToSide, 2, 16, 96, ANIM_ATTACKER, 2
+	waitforvisualfinish
+	createsprite gSlideMonToOffsetAndBackSpriteTemplate, ANIM_ATTACKER, 2, ANIM_ATTACKER, 24, 0, 0, 10, 1
+	waitforvisualfinish
+	return
+PendulumRushAttack:
+	loadspritegfx ANIM_TAG_IMPACT
+	createvisualtask AnimTask_SkullBashPosition, 2, 0
+	playsewithpan SE_M_TAKE_DOWN, SOUND_PAN_ATTACKER
+	waitforvisualfinish
+	playse SE_BANG
+	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG, 3, 1, RGB_BLACK, 14, RGB_WHITE, 14
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_ATTACKER, 2, 0, 40, 1
+	createvisualtask AnimTask_ShakeMonInPlace, 2, ANIM_TARGET, 10, 0, 40, 1
+	createsprite gFlashingHitSplatSpriteTemplate, ANIM_TARGET, 4, 0, 0, ANIM_TARGET, 0
+	loopsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET, 8, 3
+	waitforvisualfinish
+	createvisualtask AnimTask_SkullBashPosition, 2, 1
+	goto PendulumRushEnd
+
+Move_BONK:
+	goto Move_PLAY_ROUGH
 
 Move_COUNT:
 	loadspritegfx ANIM_TAG_IMPACT

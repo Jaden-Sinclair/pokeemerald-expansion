@@ -443,6 +443,11 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBrickBreak              @ EFFECT_RAGING_BULL
 	.4byte BattleScript_EffectHit                     @ EFFECT_RAGE_FIST
 	.4byte BattleScript_EffectQuillBarrage            @ EFFECT_QUILL_BARRAGE
+	.4byte BattleScript_EffectBurningPassion		  @ EFFECT_BURNING_PASSION
+	.4byte BattleScript_EffectGorge         		  @ EFFECT_GORGE
+	.4byte BattleScript_EffectHit					  @ EFFECT_BLOAT_TACKLE
+	.4byte BattleScript_EffectFeast					  @ EFFECT_FEAST
+	.4byte BattleScript_EffectPendulumRush			  @ EFFECT_PENDULUM_RUSH
 
 BattleScript_EffectGlaiveRush::
 	call BattleScript_EffectHit_Ret
@@ -10740,7 +10745,189 @@ BattleScript_EffectSnow::
 
 BattleScript_EffectQuillBarrage::
 	call BattleScript_EffectMultiHit
-	trysetspikes BattleScript_FailedFromAtkString
+	trysetspikes BattleScript_FailedFromFullSpikes
 	printstring STRINGID_SPIKESSCATTERED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+
+BattleScript_FailedFromFullSpikes::
+	attackstring
+	ppreduce
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_NOADDITIONALEFFECT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectBurningPassion::
+	setmoveeffect MOVE_EFFECT_INFATUATE
+	goto BattleScript_EffectHit
+
+BattleScript_EffectWavecrashJaws::
+	call BattleScript_EffectHit
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectGorge::
+	setmoveeffect MOVE_EFFECT_GORGE | MOVE_EFFECT_CERTAIN
+	goto BattleScript_EffectHit
+
+BattleScript_MoveEffectGorge::
+	printstring STRINGID_BUGBITE
+	waitmessage B_WAIT_TIME_LONG
+	stockpile 0
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	.if B_STOCKPILE_RAISES_DEFS < GEN_4
+	goto BattleScript_EffectStockpileEnd
+	.endif
+	jumpifmovehadnoeffect BattleScript_EffectStockpileEnd
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_EffectStockpileDef
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_EffectStockpileEnd
+
+BattleScript_EffectFeast::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_FeastSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_FeastSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_FEAST
+	call BattleScriptFirstChargingTurn
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+BattleScript_FeastSecondTurn:
+	attackcanceler
+	setmoveeffect MOVE_EFFECT_CHARGING
+	setbyte sB_ANIM_TURN, 1
+	clearstatusfromeffect BS_ATTACKER
+	orword gHitMarker, HITMARKER_NO_PPDEDUCT
+	attackstring
+	attackanimation
+	waitanimation
+	stockpile 0
+	jumpifmovehadnoeffect BattleScript_EffectFeastZero
+	stockpile 2
+	jumpifmovehadnoeffect BattleScript_EffectFeastOne
+	stockpile 2
+	jumpifmovehadnoeffect BattleScript_EffectFeastTwo
+	goto BattleScript_EffectFeastThree
+
+BattleScript_EffectFeastZero::
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_EffectStockpileEnd
+
+BattleScript_EffectFeastOne::
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	.if B_STOCKPILE_RAISES_DEFS < GEN_4
+	goto BattleScript_EffectStockpileEnd
+	.endif
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_FeastRaiseDefOne
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+	goto BattleScript_FeastRaiseDefOne
+
+BattleScript_EffectFeastTwo::
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	.if B_STOCKPILE_RAISES_DEFS < GEN_4
+	goto BattleScript_EffectStockpileEnd
+	.endif
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_FeastRaiseDefTwo
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+	goto BattleScript_FeastRaiseDefTwo
+
+BattleScript_EffectFeastThree::
+	printfromtable gStockpileUsedStringIds
+	waitmessage B_WAIT_TIME_LONG
+	.if B_STOCKPILE_RAISES_DEFS < GEN_4
+	goto BattleScript_EffectStockpileEnd
+	.endif
+	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_DEF, MAX_STAT_STAGE, BattleScript_FeastRaiseDefThree
+	jumpifstat BS_ATTACKER, CMP_EQUAL, STAT_SPDEF, MAX_STAT_STAGE, BattleScript_CantRaiseMultipleStats
+	goto BattleScript_FeastRaiseDefThree
+
+BattleScript_FeastRaiseDefOne::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastRaiseSpDefOne
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastRaiseSpDefOne
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastRaiseSpDefOne
+
+BattleScript_FeastRaiseDefTwo::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastRaiseSpDefTwo
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastRaiseSpDefTwo
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastRaiseSpDefTwo
+
+BattleScript_FeastRaiseDefThree::
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 3, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastRaiseSpDefThree
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastRaiseSpDefThree
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastRaiseSpDefThree
+
+BattleScript_FeastRaiseSpDefOne::
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastEnd
+
+BattleScript_FeastRaiseSpDefTwo::
+	setstatchanger STAT_SPDEF, 2, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastEnd
+
+BattleScript_FeastRaiseSpDefThree::
+	setstatchanger STAT_SPDEF, 3, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_FeastEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_FeastEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_FeastEnd
+
+BattleScript_FeastEnd::
+	goto BattleScript_EffectStockpileEnd
+
+BattleScript_EffectPendulumRush::
+	jumpifstatus2 BS_ATTACKER, STATUS2_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn
+	jumpifword CMP_COMMON_BITS, gHitMarker, HITMARKER_NO_ATTACKSTRING, BattleScript_TwoTurnMovesSecondTurn
+	setbyte sTWOTURN_STRINGID, B_MSG_TURN1_PENDULUM_RUSH
+	call BattleScriptFirstChargingTurn
+BattleScript_PendulumRushRaiseDef:
+	setbyte sSTAT_ANIM_PLAYED, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_DEF | BIT_SPDEF, 0
+	setstatchanger STAT_DEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_PendulumRushRaiseSpDef
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_PendulumRushRaiseSpDef
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_PendulumRushRaiseSpDef:
+	setstatchanger STAT_SPDEF, 1, FALSE
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_PendulumRushEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_INCREASE, BattleScript_PendulumRushEnd
+	printfromtable gStatUpStringIds
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_PendulumRushEnd
+BattleScript_PendulumRushEnd::
+	jumpifnoholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_MoveEnd
+	call BattleScript_PowerHerbActivation
+	goto BattleScript_TwoTurnMovesSecondTurn
+
+BattleScript_MoveEffectInfatuate::
+	infatuatewithbattler BS_TARGET, BS_ATTACKER
+	status2animation BS_TARGET, STATUS2_INFATUATION
+	waitanimation
+	printstring STRINGID_PKMNFELLINLOVE
+	waitmessage B_WAIT_TIME_LONG
+	return

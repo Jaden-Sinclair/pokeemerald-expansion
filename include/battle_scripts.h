@@ -491,6 +491,9 @@ extern const u8 BattleScript_HurtByTheSeaOfFire[];
 extern const u8 BattleScript_TheSeaOfFireDisappeared[];
 extern const u8 BattleScript_TheSwampDisappeared[];
 extern const u8 BattleScript_ItemRestoreHP_Party[];
+extern const u8 BattleScript_MoveEffectGorge[];
+extern const u8 BattleScript_MoveEffectBurningPassion[];
+extern const u8 BattleScript_MoveEffectInfatuate[];
 
 // zmoves
 extern const u8 BattleScript_ZMoveActivateDamaging[];
