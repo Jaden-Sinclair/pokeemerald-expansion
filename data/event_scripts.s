@@ -1091,3 +1091,11 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/EchelonCityWest_PlayerFlat_3F/scripts.inc"
 
 	.include "data/maps/EchelonCityNorth_PokeLab/scripts.inc"
+
+	.include "data/maps/EchelonCityNorth_GuardHouse/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_AnnaFlat_1F/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_AnnaFlat_2F/scripts.inc"
+
+	.include "data/maps/EchelonCityWest_AnnaFlat_3F/scripts.inc"

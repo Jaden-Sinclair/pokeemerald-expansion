@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_MEZK",
       "x": 21,
       "y": 5,
       "elevation": 0,
@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_MACHAMP",
       "x": 7,
       "y": 7,
       "elevation": 0,
@@ -158,7 +158,7 @@
       "flag": "FLAG_RECEIVED_STARTER"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_CHATOT",
       "x": 9,
       "y": 14,
       "elevation": 0,

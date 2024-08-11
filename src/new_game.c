@@ -127,11 +127,11 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    if (!FlagGet(FLAG_SKIP_AHEAD))
+    if (VarGet(VAR_STARTING_SPOT) == 0)
     {
         SetWarpDestination(MAP_GROUP(ECHELON_CITY_WEST_PLAYER_FLAT_2F), MAP_NUM(ECHELON_CITY_WEST_PLAYER_FLAT_2F), WARP_ID_NONE, 15, 7);
     }
-    else
+    else if (VarGet(VAR_STARTING_SPOT) == 1)
     {
         SetWarpDestination(MAP_GROUP(ECHELON_CITY_NORTH_POKE_LAB), MAP_NUM(ECHELON_CITY_NORTH_POKE_LAB), WARP_ID_NONE, 11, 14);
         VarSet(VAR_ECHELON_CITY_WEST_STATE, 5);

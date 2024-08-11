@@ -1284,6 +1284,7 @@ static void Task_NewGameBirchSpeech_Init(u8 taskId)
     FreeAllSpritePalettes();
     ResetAllPicSprites();
     FlagSet(FLAG_SKIP_AHEAD);
+    VarSet(VAR_STARTING_SPOT, 1);
     if (!FlagGet(FLAG_SKIP_AHEAD))
     {
         AddBirchSpeechObjects(taskId);

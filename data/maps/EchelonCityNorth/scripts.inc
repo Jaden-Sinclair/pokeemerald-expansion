@@ -314,7 +314,7 @@ EchelonCityNorth_EventScript_EastBridgeGuardCheckId:
 EchelonCityNorth_Text_EastBridgeGuardCheckId:
 	.string "Let me check your Trainer ID.\p"
 	.string "...\p"
-	.string "{PAUSE 120}You need more badges before you're\n"
+	.string "You need more badges before you're\n"
 	.string "allowed to cross here.$"
 
 EchelonCityNorth_EventScript_EastBridgeGuardIgnore:

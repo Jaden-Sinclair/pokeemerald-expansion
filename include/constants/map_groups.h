@@ -73,9 +73,13 @@
 #define MAP_ECHELON_CITY_WEST_PLAYER_FLAT_1F (0 | (1 << 8))
 #define MAP_ECHELON_CITY_WEST_PLAYER_FLAT_2F (1 | (1 << 8))
 #define MAP_ECHELON_CITY_WEST_PLAYER_FLAT_3F (2 | (1 << 8))
+#define MAP_ECHELON_CITY_WEST_ANNA_FLAT_1F   (3 | (1 << 8))
+#define MAP_ECHELON_CITY_WEST_ANNA_FLAT_2F   (4 | (1 << 8))
+#define MAP_ECHELON_CITY_WEST_ANNA_FLAT_3F   (5 | (1 << 8))
 
 // gMapGroup_IndoorEchelonCityNorth
-#define MAP_ECHELON_CITY_NORTH_POKE_LAB (0 | (2 << 8))
+#define MAP_ECHELON_CITY_NORTH_POKE_LAB    (0 | (2 << 8))
+#define MAP_ECHELON_CITY_NORTH_GUARD_HOUSE (1 | (2 << 8))
 
 // gMapGroup_IndoorLittleroot
 #define MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    (0 | (3 << 8))

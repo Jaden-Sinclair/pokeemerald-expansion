@@ -2,7 +2,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNorm
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanMachBike;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanSurfing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanFieldMove;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardM;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMTorterra;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMFissure;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMParas;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMFuture;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMMezk;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMMachamp;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMChatot;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMGovernment;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardF;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Worker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuintyPlump;
@@ -255,7 +262,14 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
     [OBJ_EVENT_GFX_BRENDAN_SURFING] =          &gObjectEventGraphicsInfo_BrendanSurfing,
     [OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE] =       &gObjectEventGraphicsInfo_BrendanFieldMove,
-    [OBJ_EVENT_GFX_GUARD_M] =                  &gObjectEventGraphicsInfo_GuardM,
+    [OBJ_EVENT_GFX_GUARD_M_TORTERRA] =         &gObjectEventGraphicsInfo_GuardMTorterra,
+    [OBJ_EVENT_GFX_GUARD_M_FISSURE] =          &gObjectEventGraphicsInfo_GuardMFissure,
+    [OBJ_EVENT_GFX_GUARD_M_PARAS] =            &gObjectEventGraphicsInfo_GuardMParas,
+    [OBJ_EVENT_GFX_GUARD_M_FUTURE] =           &gObjectEventGraphicsInfo_GuardMFuture,
+    [OBJ_EVENT_GFX_GUARD_M_MEZK] =             &gObjectEventGraphicsInfo_GuardMMezk,
+    [OBJ_EVENT_GFX_GUARD_M_MACHAMP] =          &gObjectEventGraphicsInfo_GuardMMachamp,
+    [OBJ_EVENT_GFX_GUARD_M_CHATOT] =           &gObjectEventGraphicsInfo_GuardMChatot,
+    [OBJ_EVENT_GFX_GUARD_M_GOVERNMENT] =       &gObjectEventGraphicsInfo_GuardMGovernment,
     [OBJ_EVENT_GFX_GUARD_F] =                  &gObjectEventGraphicsInfo_GuardF,
     [OBJ_EVENT_GFX_WORKER] =                   &gObjectEventGraphicsInfo_Worker,
     [OBJ_EVENT_GFX_QUINTY_PLUMP] =             &gObjectEventGraphicsInfo_QuintyPlump,

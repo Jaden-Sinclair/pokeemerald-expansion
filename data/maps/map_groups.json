@@ -105,10 +105,14 @@
   "gMapGroup_IndoorEchelonCityWest": [
     "EchelonCityWest_PlayerFlat_1F",
     "EchelonCityWest_PlayerFlat_2F",
-    "EchelonCityWest_PlayerFlat_3F"
+    "EchelonCityWest_PlayerFlat_3F",
+    "EchelonCityWest_AnnaFlat_1F",
+    "EchelonCityWest_AnnaFlat_2F",
+    "EchelonCityWest_AnnaFlat_3F"
   ],
   "gMapGroup_IndoorEchelonCityNorth": [
-    "EchelonCityNorth_PokeLab"
+    "EchelonCityNorth_PokeLab",
+    "EchelonCityNorth_GuardHouse"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
