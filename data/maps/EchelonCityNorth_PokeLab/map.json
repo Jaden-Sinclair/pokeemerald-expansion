@@ -54,7 +54,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_MEZK",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_PARAS",
       "x": 21,
       "y": 5,
       "elevation": 0,
@@ -67,7 +67,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_F",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_F_PARAS",
       "x": 11,
       "y": 3,
       "elevation": 0,
@@ -80,7 +80,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_MACHAMP",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_PARAS",
       "x": 7,
       "y": 7,
       "elevation": 0,
@@ -132,7 +132,7 @@
       "flag": "FLAG_RECEIVED_STARTER"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_F",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_F_PARAS",
       "x": 12,
       "y": 8,
       "elevation": 0,
@@ -158,7 +158,7 @@
       "flag": "FLAG_RECEIVED_STARTER"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_CHATOT",
+      "graphics_id": "OBJ_EVENT_GFX_GUARD_M_PARAS",
       "x": 9,
       "y": 14,
       "elevation": 0,

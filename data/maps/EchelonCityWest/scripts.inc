@@ -242,16 +242,61 @@ EchelonCityWest_Text_NorthBridgeGuardBridgeClosing:
 
 EchelonCityWest_EventScript_NorthBridgeGuardBehavior::
 	compare VAR_ECHELON_CITY_WEST_STATE, 4
-	goto_if_le EchelonCityWest_EventScript_NorthBridgeGuardFirstTime
+	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardFirstTime
 	compare VAR_ECHELON_CITY_WEST_STATE, 5
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBack
 	goto_if_unset FLAG_ECW_NORTH_BRIDGE_ID_CHECKED, EchelonCityWest_EventScript_NorthBridgeGuardChecksId
 	msgbox EchelonCityWest_Text_NorthBridgeGuardFreeToPass, MSGBOX_NPC
 	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
 
+EchelonCityWest_Text_NorthBridgeGuardFreeToPass:
+	.string "You're free to pass.$"
+
+EchelonCityWest_EventScript_NorthBridgeGuardStopsPlayer::
+	setflag FLAG_STOPPED_BY_GUARD
+	compare VAR_ECHELON_CITY_WEST_STATE, 4
+	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardFirstTimeStopped
+	compare VAR_ECHELON_CITY_WEST_STATE, 5
+	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBackStopped
+	goto_if_set FLAG_ECW_NORTH_BRIDGE_ID_CHECKED, EchelonCityWest_EventScript_NorthBridgeGuardIgnore
+	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
+	msgbox EchelonCityWest_Text_NorthBridgeGuardHoldIt, MSGBOX_NPC
+	goto EchelonCityWest_EventScript_NorthBridgeGuardChecksId
+
+EchelonCityWest_Text_NorthBridgeGuardHoldIt:
+	.string "Hold it!$"
+
+EchelonCityWest_EventScript_NorthBridgeGuardReset:
+	clearflag FLAG_STOPPED_BY_GUARD
+	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_SOUTH
+	releaseall
+	end
+
+EchelonCityWest_EventScript_NorthBridgeGuardChecksId::
+	msgbox EchelonCityWest_Text_NorthBridgeGuardChecksId, MSGBOX_NPC
+	setflag FLAG_ECW_NORTH_BRIDGE_ID_CHECKED
+	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
+
+EchelonCityWest_Text_NorthBridgeGuardChecksId:
+	.string "Let me check your Trainer ID.\p"
+	.string "...\p"
+	.string "Okay {PLAYER}. You're free to pass.$"
+
+EchelonCityWest_EventScript_NorthBridgeGuardIgnore:
+	clearflag FLAG_STOPPED_BY_GUARD
+	releaseall
+	end
+
 EchelonCityWest_EventScript_NorthBridgeGuardFirstTime:
-	lock
 	faceplayer
+	setvar VAR_ECHELON_CITY_WEST_STATE, 5
+	msgbox EchelonCityWest_Text_NorthBridgeGuardFirstTime, MSGBOX_YESNO
+	compare VAR_RESULT, YES
+	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardAnswerYes
+	goto EchelonCityWest_EventScript_NorthBridgeGuardAnswerNo
+
+EchelonCityWest_EventScript_NorthBridgeGuardFirstTimeStopped:
+	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
 	setvar VAR_ECHELON_CITY_WEST_STATE, 5
 	msgbox EchelonCityWest_Text_NorthBridgeGuardFirstTime, MSGBOX_YESNO
 	compare VAR_RESULT, YES
@@ -271,12 +316,6 @@ EchelonCityWest_EventScript_NorthBridgeGuardMovePlayerThrough:
 	goto_if_set FLAG_STOPPED_BY_GUARD, EchelonCityWest_EventScript_NorthBridgeGuardMoveStoppedPlayer
 	goto EchelonCityWest_EventScript_NorthBridgeGuardMoveTalkedPlayer
 
-EchelonCityWest_EventScript_NorthBridgeGuardMoveStoppedPlayer:
-	clearflag FLAG_STOPPED_BY_GUARD
-	applymovement OBJ_EVENT_ID_PLAYER, EchelonCityWest_Movement_NorthBridgeGuardMoveStoppedPlayer
-	waitmovement 0
-	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
-
 EchelonCityWest_EventScript_NorthBridgeGuardMoveTalkedPlayer:
 	applymovement LOCALID_NORTH_BRIDGE_GUARD, EchelonCityWest_Movement_NorthBridgeGuardLetPlayerThrough
 	waitmovement 0
@@ -285,6 +324,30 @@ EchelonCityWest_EventScript_NorthBridgeGuardMoveTalkedPlayer:
 	applymovement LOCALID_NORTH_BRIDGE_GUARD, EchelonCityWest_Movement_NorthBridgeGuardReturnToPost
 	waitmovement 0
 	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
+
+EchelonCityWest_EventScript_NorthBridgeGuardMoveStoppedPlayer:
+	applymovement OBJ_EVENT_ID_PLAYER, EchelonCityWest_Movement_NorthBridgeGuardMoveStoppedPlayer
+	waitmovement 0
+	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
+
+EchelonCityWest_Text_NorthBridgeGuardFirstTime:
+	.string "This your first time getting to go\n"
+	.string "North, kid?$"
+
+EchelonCityWest_Text_NorthBridgeGuardAnswerYes:
+	.string "Well, we'll see if you ever get any\n"
+	.string "farther.\p"
+	.string "Though I doubt it.\p"
+	.string "...\p"
+	.string "Well, get going then.$"
+
+EchelonCityWest_Text_NorthBridgeGuardAnswerNo:
+	.string "Heh. I doubt it.\p"
+	.string "We'll see if you make it anywhere else.\p"
+	.string "You've got spunk, but it's rare for one\n"
+	.string "of you lot to get very far.\p"
+	.string "...\p"
+	.string "Well, get going then.$"
 
 EchelonCityWest_Movement_NorthBridgeGuardMoveStoppedPlayer:
 	walk_up
@@ -313,75 +376,13 @@ EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBack:
 
 EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBackStopped:
 	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
-	waitmovement 0
 	msgbox EchelonCityWest_Text_NorthBridgeGuardNoTurningBack, MSGBOX_NPC
 	applymovement OBJ_EVENT_ID_PLAYER, EchelonCityWest_Movement_NorthBridgeGuardMoveStoppedPlayer
+	waitmovement 0
 	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
 
 EchelonCityWest_Text_NorthBridgeGuardNoTurningBack:
 	.string "No turning back now.$"
-
-EchelonCityWest_Text_NorthBridgeGuardFirstTime:
-	.string "This your first time getting to go\n"
-	.string "North, kid?$"
-
-EchelonCityWest_Text_NorthBridgeGuardAnswerYes:
-	.string "Well, we'll see if you ever get any\n"
-	.string "farther.\p"
-	.string "Though I doubt it.\p"
-	.string "...\p"
-	.string "Well, get going then.$"
-
-EchelonCityWest_Text_NorthBridgeGuardAnswerNo:
-	.string "Heh. I doubt it.\p"
-	.string "We'll see if you make it anywhere else.\p"
-	.string "You've got spunk, but it's rare for one\n"
-	.string "of you lot to get very far.\p"
-	.string "...\p"
-	.string "Well, get going then.$"
-
-EchelonCityWest_EventScript_NorthBridgeGuardStopsPlayer::
-	setflag FLAG_STOPPED_BY_GUARD
-	compare VAR_ECHELON_CITY_WEST_STATE, 5
-	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBack
-	goto_if_set FLAG_ECW_NORTH_BRIDGE_ID_CHECKED, EchelonCityWest_EventScript_NorthBridgeGuardIgnore
-	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
-	waitmovement 0
-	compare VAR_ECHELON_CITY_WEST_STATE, 4
-	goto_if_le EchelonCityWest_EventScript_NorthBridgeGuardFirstTime
-	lock
-	msgbox EchelonCityWest_Text_NorthBridgeGuardHoldIt, MSGBOX_NPC
-	goto EchelonCityWest_EventScript_NorthBridgeGuardChecksId
-	end
-
-EchelonCityWest_EventScript_NorthBridgeGuardIgnore:
-	clearflag FLAG_STOPPED_BY_GUARD
-	releaseall
-	end
-
-EchelonCityWest_Text_NorthBridgeGuardHoldIt:
-	.string "Hold it!$"
-
-EchelonCityWest_Text_NorthBridgeGuardFreeToPass:
-	.string "You're free to pass.$"
-
-EchelonCityWest_EventScript_NorthBridgeGuardChecksId::
-	lockall
-	msgbox EchelonCityWest_Text_NorthBridgeGuardChecksId, MSGBOX_NPC
-	setflag FLAG_ECW_NORTH_BRIDGE_ID_CHECKED
-	goto EchelonCityWest_EventScript_NorthBridgeGuardReset
-
-EchelonCityWest_Text_NorthBridgeGuardChecksId:
-	.string "Let me check your Trainer ID.\p"
-	.string "...\p"
-	.string "Okay {PLAYER}. You're free to pass.$"
-
-EchelonCityWest_EventScript_NorthBridgeGuardReset:
-	clearflag FLAG_STOPPED_BY_GUARD
-	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_SOUTH
-	waitmovement 0
-	releaseall
-	end
 
 EchelonCityWest_EventScript_KeepPlayerRightAfterApartments::
 	lockall
@@ -440,7 +441,7 @@ EchelonCityWest_EventScript_SchoolSign::
 	end
 
 EchelonCityWest_Text_BeachSign:
-	.string "Sandy Beach\n"
+	.string "Machamp Media Beach\n"
 	.string "“Please keep our beaches clean!”$"
 
 EchelonCityWest_Text_BridgeEastSign:
@@ -455,7 +456,7 @@ EchelonCityWest_Text_BridgeNorthSign:
 
 EchelonCityWest_Text_ParkSign:
 	.string "Highland Park\n"
-	.string "Funded by $"
+	.string "Funded by Torterra Industries$"
 
 EchelonCityWest_Text_TrainStationSign:
 	.string "Echelon City Station\n"
@@ -463,4 +464,4 @@ EchelonCityWest_Text_TrainStationSign:
 
 EchelonCityWest_Text_SchoolSign:
 	.string "Echelon City Trade School\n"
-	.string "Funded by $"
+	.string "Funded by Torterra Industries$"

@@ -231,6 +231,7 @@ EchelonCityNorth_PokeLab_EventScript_ReceivePokemon::
 	setflag FLAG_SYS_POKEMON_GET
 	setvar VAR_ECHELON_CITY_NORTH_LAB_STATE, 2
 	setvar VAR_ECHELON_CITY_NORTH_STATE, 2
+	setvar VAR_ECHELON_CITY_WEST_STATE, 6
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_HIDING_BOY
 	removeobject LOCALID_RICH_MAN

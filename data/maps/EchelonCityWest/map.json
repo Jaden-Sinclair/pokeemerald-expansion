@@ -156,8 +156,8 @@
       "x": 35,
       "y": 21,
       "elevation": 0,
-      "var": "FLAG_RECEIVED_STARTER",
-      "var_value": "0",
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
       "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
     },
     {
@@ -165,8 +165,8 @@
       "x": 35,
       "y": 20,
       "elevation": 0,
-      "var": "FLAG_RECEIVED_STARTER",
-      "var_value": "0",
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
       "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
     },
     {
@@ -174,8 +174,8 @@
       "x": 35,
       "y": 19,
       "elevation": 0,
-      "var": "FLAG_RECEIVED_STARTER",
-      "var_value": "0",
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "2",
       "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
     },
     {
@@ -210,8 +210,8 @@
       "x": 48,
       "y": 22,
       "elevation": 0,
-      "var": "FLAG_RECEIVED_STARTER",
-      "var_value": "0",
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
       "script": "EchelonCityWest_EventScript_KeepPlayerUpAfterApartments"
     },
     {
@@ -219,8 +219,8 @@
       "x": 49,
       "y": 22,
       "elevation": 0,
-      "var": "FLAG_RECEIVED_STARTER",
-      "var_value": "0",
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
       "script": "EchelonCityWest_EventScript_KeepPlayerUpAfterApartments"
     },
     {
@@ -330,6 +330,24 @@
       "var": "VAR_ECHELON_CITY_WEST_STATE",
       "var_value": "4",
       "script": "EchelonCityWest_EventScript_NorthBridgeGuardBridgeClosing"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
+      "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
+    },
+    {
+      "type": "trigger",
+      "x": 44,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_ECHELON_CITY_WEST_STATE",
+      "var_value": "3",
+      "script": "EchelonCityWest_EventScript_KeepPlayerRightAfterApartments"
     }
   ],
   "bg_events": [

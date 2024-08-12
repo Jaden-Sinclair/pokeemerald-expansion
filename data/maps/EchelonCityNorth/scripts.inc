@@ -29,8 +29,8 @@ EchelonCityNorth_EventScript_FirstBattle:
 	lock
 	setvar VAR_ECHELON_CITY_NORTH_STATE, 3
 	applymovement LOCALID_ANNA, Common_Movement_ExclamationMark
-	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	waitmovement 0
+	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
 	applymovement LOCALID_ANNA, Common_Movement_RunRight
 	waitmovement 0
 	applymovement LOCALID_ANNA, Common_Movement_RunRight
@@ -340,7 +340,7 @@ EchelonCityNorth_EventScript_ProtestorBehaviour::
 
 EchelonCityNorth_Text_ProtestorChant:
 	.string "We work harder every day,\n"
-	.string "Steelix Corp must raise our pay!$"
+	.string "Torterra must raise our pay!$"
 
 EchelonCityNorth_EventScript_BridgeEastSign::
 	msgbox EchelonCityNorth_Text_BridgeEastSign, MSGBOX_SIGN
@@ -362,4 +362,4 @@ EchelonCityNorth_Text_BridgeWestSign:
 
 EchelonCityNorth_Text_LabSign:
 	.string "Echelon City Pokemon Lab\n"
-	.string "Funded by $"
+	.string "Funded by P.A.R.A.S.$"

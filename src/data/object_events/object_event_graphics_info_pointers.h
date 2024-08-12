@@ -10,7 +10,14 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMMezk;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMMachamp;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMChatot;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardMGovernment;
-extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardF;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFTorterra;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFFissure;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFParas;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFFuture;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFMezk;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFMachamp;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFChatot;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GuardFGovernment;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Worker;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_QuintyPlump;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_NinjaBoy;
@@ -262,16 +269,6 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_BRENDAN_MACH_BIKE] =        &gObjectEventGraphicsInfo_BrendanMachBike,
     [OBJ_EVENT_GFX_BRENDAN_SURFING] =          &gObjectEventGraphicsInfo_BrendanSurfing,
     [OBJ_EVENT_GFX_BRENDAN_FIELD_MOVE] =       &gObjectEventGraphicsInfo_BrendanFieldMove,
-    [OBJ_EVENT_GFX_GUARD_M_TORTERRA] =         &gObjectEventGraphicsInfo_GuardMTorterra,
-    [OBJ_EVENT_GFX_GUARD_M_FISSURE] =          &gObjectEventGraphicsInfo_GuardMFissure,
-    [OBJ_EVENT_GFX_GUARD_M_PARAS] =            &gObjectEventGraphicsInfo_GuardMParas,
-    [OBJ_EVENT_GFX_GUARD_M_FUTURE] =           &gObjectEventGraphicsInfo_GuardMFuture,
-    [OBJ_EVENT_GFX_GUARD_M_MEZK] =             &gObjectEventGraphicsInfo_GuardMMezk,
-    [OBJ_EVENT_GFX_GUARD_M_MACHAMP] =          &gObjectEventGraphicsInfo_GuardMMachamp,
-    [OBJ_EVENT_GFX_GUARD_M_CHATOT] =           &gObjectEventGraphicsInfo_GuardMChatot,
-    [OBJ_EVENT_GFX_GUARD_M_GOVERNMENT] =       &gObjectEventGraphicsInfo_GuardMGovernment,
-    [OBJ_EVENT_GFX_GUARD_F] =                  &gObjectEventGraphicsInfo_GuardF,
-    [OBJ_EVENT_GFX_WORKER] =                   &gObjectEventGraphicsInfo_Worker,
     [OBJ_EVENT_GFX_QUINTY_PLUMP] =             &gObjectEventGraphicsInfo_QuintyPlump,
     [OBJ_EVENT_GFX_NINJA_BOY] =                &gObjectEventGraphicsInfo_NinjaBoy,
     [OBJ_EVENT_GFX_TWIN] =                     &gObjectEventGraphicsInfo_Twin,
@@ -508,6 +505,23 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_LUGIA] =                    &gObjectEventGraphicsInfo_Lugia,
     [OBJ_EVENT_GFX_HOOH] =                     &gObjectEventGraphicsInfo_HoOh,
     [OBJ_EVENT_GFX_BLANK] =                    &gObjectEventGraphicsInfo_Blank,
+    [OBJ_EVENT_GFX_WORKER] =                   &gObjectEventGraphicsInfo_Worker,
+    [OBJ_EVENT_GFX_GUARD_M_TORTERRA] =         &gObjectEventGraphicsInfo_GuardMTorterra,
+    [OBJ_EVENT_GFX_GUARD_M_FISSURE] =          &gObjectEventGraphicsInfo_GuardMFissure,
+    [OBJ_EVENT_GFX_GUARD_M_PARAS] =            &gObjectEventGraphicsInfo_GuardMParas,
+    [OBJ_EVENT_GFX_GUARD_M_FUTURE] =           &gObjectEventGraphicsInfo_GuardMFuture,
+    [OBJ_EVENT_GFX_GUARD_M_MEZK] =             &gObjectEventGraphicsInfo_GuardMMezk,
+    [OBJ_EVENT_GFX_GUARD_M_MACHAMP] =          &gObjectEventGraphicsInfo_GuardMMachamp,
+    [OBJ_EVENT_GFX_GUARD_M_CHATOT] =           &gObjectEventGraphicsInfo_GuardMChatot,
+    [OBJ_EVENT_GFX_GUARD_M_GOVERNMENT] =       &gObjectEventGraphicsInfo_GuardMGovernment,
+    [OBJ_EVENT_GFX_GUARD_F_TORTERRA] =         &gObjectEventGraphicsInfo_GuardFTorterra,
+    [OBJ_EVENT_GFX_GUARD_F_FISSURE] =          &gObjectEventGraphicsInfo_GuardFFissure,
+    [OBJ_EVENT_GFX_GUARD_F_PARAS] =            &gObjectEventGraphicsInfo_GuardFParas,
+    [OBJ_EVENT_GFX_GUARD_F_FUTURE] =           &gObjectEventGraphicsInfo_GuardFFuture,
+    [OBJ_EVENT_GFX_GUARD_F_MEZK] =             &gObjectEventGraphicsInfo_GuardFMezk,
+    [OBJ_EVENT_GFX_GUARD_F_MACHAMP] =          &gObjectEventGraphicsInfo_GuardFMachamp,
+    [OBJ_EVENT_GFX_GUARD_F_CHATOT] =           &gObjectEventGraphicsInfo_GuardFChatot,
+    [OBJ_EVENT_GFX_GUARD_F_GOVERNMENT] =       &gObjectEventGraphicsInfo_GuardFGovernment,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

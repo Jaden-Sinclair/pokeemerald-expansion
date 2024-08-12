@@ -95,7 +95,7 @@
 #define VAR_POKELOT_RND1                                 0x404B
 #define VAR_POKELOT_RND2                                 0x404C
 #define VAR_POKELOT_PRIZE_PLACE                          0x404D
-#define VAR_ECHELON_CITY_WEST_STATE                      0x404E
+#define VAR_ECHELON_CITY_WEST_STATE                      0x404E // 1=Exit Apartment, 2=Exit Neighborhood, 3=Follow Anna, 4=Anna Crosses Bridge, 5=Talk to Guard, 6=Got Pokemon
 #define VAR_LOTAD_SIZE_RECORD                            0x404F
 #define VAR_LITTLEROOT_TOWN_STATE                        0x4050
 #define VAR_OLDALE_TOWN_STATE                            0x4051
@@ -114,8 +114,8 @@
 #define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
 #define VAR_CONSTANT                                     0x405F
 #define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ECHELON_CITY_NORTH_STATE                     0x4061
-#define VAR_ECHELON_CITY_NORTH_LAB_STATE                 0x4062
+#define VAR_ECHELON_CITY_NORTH_STATE                     0x4061 // 1=Anna Runs to Lab, 2=Got Pokemon, 3=First Battle
+#define VAR_ECHELON_CITY_NORTH_LAB_STATE                 0x4062 // 1=Start Get Pokemon, 2=Got Pokemon
 #define VAR_ROUTE104_STATE                               0x4063
 #define VAR_PLAYER_X                                     0x4064
 #define VAR_PLAYER_Y                                     0x4065
