@@ -4,6 +4,8 @@
 .set LOCALID_WISTFUL_BOY, 11
 .set LOCALID_BATTLE_GIRL_POKEMON, 14
 .set LOCALID_BATTLE_BOY_POKEMON, 15
+.set LOCALID_ROGER, 16
+.set LOCALID_EVAN, 17
 
 EchelonCityNorth_MapScripts::
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, EchelonCityNorth_OnFrame
@@ -11,23 +13,63 @@ EchelonCityNorth_MapScripts::
 	.byte 0
 
 EchelonCityNorth_OnFrame:
-	map_script_2 VAR_ECHELON_CITY_NORTH_STATE, 2, EchelonCityNorth_EventScript_FirstBattle
+	map_script_2 VAR_MAIN_STORY_STATE, 8, EchelonCityNorth_EventScript_FirstBattle
 	.2byte 0
 
 EchelonCityNorth_OnLoad:
-	compare VAR_ECHELON_CITY_NORTH_STATE, 0
-	goto_if_eq EchelonCityNorth_EventScript_AnnaSetLocationZero
-	compare VAR_ECHELON_CITY_NORTH_STATE, 1
-	goto_if_eq EchelonCityNorth_EventScript_AnnaSetLocationOne
-	compare VAR_ECHELON_CITY_NORTH_STATE, 2
-	goto_if_eq EchelonCityNorth_EventScript_AnnaSetLocationTwo
-	compare VAR_ECHELON_CITY_NORTH_STATE, 3
-	goto_if_eq EchelonCityNorth_EventScript_AnnaSetLocationOne
+	call EchelonCityNorth_EventScript_PlaceAnna
+	call EchelonCityNorth_EventScript_PlaceRoger
 	end
+
+EchelonCityNorth_EventScript_PlaceAnna:
+	clearflag FLAG_LOCATION_SET
+	compare VAR_MAIN_STORY_STATE, 5
+	call_if_eq EchelonCityNorth_EventScript_AnnaSetLocationFlowers
+	compare VAR_MAIN_STORY_STATE, 6
+	call_if_eq EchelonCityNorth_EventScript_AnnaSetLocationHidden
+	compare VAR_MAIN_STORY_STATE, 8
+	call_if_eq EchelonCityNorth_EventScript_AnnaSetLocationLabBattle
+	call_if_unset FLAG_LOCATION_SET, EchelonCityNorth_EventScript_AnnaSetLocationHidden
+	return
+
+EchelonCityNorth_EventScript_PlaceRoger:
+	clearflag FLAG_LOCATION_SET
+	compare VAR_MAIN_STORY_STATE, 8
+	call_if_eq EchelonCityNorth_EventScript_ShowRoger
+	compare VAR_MAIN_STORY_STATE, 9
+	call_if_eq EchelonCityNorth_EventScript_ShowRoger
+	call_if_unset FLAG_LOCATION_SET, EchelonCityNorth_EventScript_HideRoger
+	return
+
+EchelonCityNorth_EventScript_ShowRoger:
+	removeobject LOCALID_ROGER
+	removeobject LOCALID_EVAN
+	removeobject LOCALID_WISTFUL_BOY
+	setobjectxyperm LOCALID_ROGER, 13, 19
+	setobjectxyperm LOCALID_EVAN, 13, 18
+	setobjectxyperm LOCALID_WISTFUL_BOY, 14, 18
+	addobject LOCALID_ROGER
+	addobject LOCALID_EVAN
+	addobject LOCALID_WISTFUL_BOY
+	clearflag FLAG_HIDE_ROGER
+	setobjectmovementtype LOCALID_ROGER, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype LOCALID_EVAN, MOVEMENT_TYPE_FACE_RIGHT
+	setobjectmovementtype LOCALID_WISTFUL_BOY, MOVEMENT_TYPE_FACE_LEFT
+	setflag FLAG_LOCATION_SET
+	return
+
+EchelonCityNorth_EventScript_HideRoger:
+	removeobject LOCALID_ROGER
+	removeobject LOCALID_EVAN
+	setobjectxyperm LOCALID_ROGER, 13, 19
+	setobjectxyperm LOCALID_EVAN, 13, 18
+	setflag FLAG_HIDE_ROGER
+	setflag FLAG_LOCATION_SET
+	return
 
 EchelonCityNorth_EventScript_FirstBattle:
 	lock
-	setvar VAR_ECHELON_CITY_NORTH_STATE, 3
+	setvar VAR_MAIN_STORY_STATE, 9
 	applymovement LOCALID_ANNA, Common_Movement_ExclamationMark
 	waitmovement 0
 	turnobject OBJ_EVENT_ID_PLAYER, DIR_WEST
@@ -36,16 +78,20 @@ EchelonCityNorth_EventScript_FirstBattle:
 	applymovement LOCALID_ANNA, Common_Movement_RunRight
 	waitmovement 0
 	bufferleadmonspeciesname STR_VAR_1
-	switch VAR_STARTER_MON
-	option 0, EchelonCityNorth_EventScript_BufferAnnaPokemonPachydent
-	option 1, EchelonCityNorth_EventScript_BufferAnnaPokemonSharpuggle
-	option 2, EchelonCityNorth_EventScript_BufferAnnaPokemonWispan
+	call EchelonCityNorth_EventScript_BufferAnnaPokemonName
 	msgbox EchelonCityNorth_Text_AnnaBattle, MSGBOX_NPC
 	switch VAR_STARTER_MON
 	case 0, EchelonCityNorth_EventScript_BattleAnnaPachydent
 	case 1, EchelonCityNorth_EventScript_BattleAnnaSharpuggle
 	case 2, EchelonCityNorth_EventScript_BattleAnnaWispan
 	end
+
+EchelonCityNorth_EventScript_BufferAnnaPokemonName::
+	switch VAR_STARTER_MON
+	option 0, EchelonCityNorth_EventScript_BufferAnnaPokemonPachydent
+	option 1, EchelonCityNorth_EventScript_BufferAnnaPokemonSharpuggle
+	option 2, EchelonCityNorth_EventScript_BufferAnnaPokemonWispan
+	return
 
 EchelonCityNorth_EventScript_BufferAnnaPokemonPachydent:
 	bufferspeciesname STR_VAR_2, SPECIES_PACHYDENT
@@ -89,8 +135,8 @@ EchelonCityNorth_EventScript_DefeatedAnna:
 	msgbox EchelonCityNorth_Text_AnnaHeadHome, MSGBOX_NPC
 	applymovement LOCALID_ANNA, EchelonCityNorth_Movement_AnnaHeadsHome
 	waitmovement 0
-	call EchelonCityNorth_EventScript_AnnaSetLocationOne
-	release
+	call EchelonCityNorth_EventScript_AnnaSetLocationHidden
+	releaseall
 	end
 
 EchelonCityNorth_Text_AnnaHeadHome:
@@ -117,6 +163,30 @@ EchelonCityNorth_Movement_AnnaHeadsHome:
 	walk_fast_left
 	step_end
 
+EchelonCityNorth_EventScript_KidRunsOff:
+	lockall
+	applymovement LOCALID_WISTFUL_BOY, EchelonCityNorth_Movement_KidRunsUp
+	waitmovement 0
+	turnobject LOCALID_EVAN, DIR_SOUTH
+	msgbox EchelonCityNorth_Text_EvanTooEasy, MSGBOX_NPC
+	setvar VAR_MAIN_STORY_STATE, 10
+	releaseall
+	end
+
+EchelonCityNorth_Text_EvanTooEasy:
+	.string "These losers are too easy!\p"
+	.string "You take the next battle, see if they\n"
+	.string "cry as much as that last one.$"
+
+EchelonCityNorth_Movement_KidRunsUp:
+	jump_in_place_left
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	walk_fast_up
+	end
+
 EchelonCityNorth_EventScript_WestBridgeGuardBehaviour::
 	lockall
 	msgbox EchelonCityNorth_Text_WestBridgeGuardDontBother, MSGBOX_NPC
@@ -128,27 +198,30 @@ EchelonCityNorth_Text_WestBridgeGuardDontBother:
 	.string "Don't bother me if it isn't something\n"
 	.string "important.$"
 
-EchelonCityNorth_EventScript_AnnaSetLocationZero:
+EchelonCityNorth_EventScript_AnnaSetLocationFlowers:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 20, 11
 	addobject LOCALID_ANNA
 	clearflag FLAG_HIDE_ANNA
 	setobjectmovementtype LOCALID_ANNA, MOVEMENT_TYPE_FACE_UP
-	end
+	setflag FLAG_LOCATION_SET
+	return
 
-EchelonCityNorth_EventScript_AnnaSetLocationOne:
+EchelonCityNorth_EventScript_AnnaSetLocationHidden:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 47, 16
 	setflag FLAG_HIDE_ANNA
-	end
+	setflag FLAG_LOCATION_SET
+	return
 
-EchelonCityNorth_EventScript_AnnaSetLocationTwo:
+EchelonCityNorth_EventScript_AnnaSetLocationLabBattle:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 43, 16
 	addobject LOCALID_ANNA
 	clearflag FLAG_HIDE_ANNA
 	setobjectmovementtype LOCALID_ANNA, MOVEMENT_TYPE_FACE_RIGHT
-	end
+	setflag FLAG_LOCATION_SET
+	return
 
 EchelonCityNorth_EventScript_AnnaRunsToLab::
 	lockall
@@ -156,8 +229,8 @@ EchelonCityNorth_EventScript_AnnaRunsToLab::
 	msgbox EchelonCityNorth_Text_AnnaFlowersBeautiful, MSGBOX_NPC
 	applymovement LOCALID_ANNA, EchelonCityNorth_Movement_AnnaRunToLab
 	waitmovement 0
-	setvar VAR_ECHELON_CITY_NORTH_STATE, 1
-	call EchelonCityNorth_EventScript_AnnaSetLocationOne
+	setvar VAR_MAIN_STORY_STATE, 6
+	call EchelonCityNorth_EventScript_AnnaSetLocationHidden
 	releaseall
 	end
 

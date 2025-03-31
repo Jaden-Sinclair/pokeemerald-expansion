@@ -127,7 +127,7 @@ static void ClearFrontierRecord(void)
 
 static void WarpToTruck(void)
 {
-    VarSet(VAR_STARTING_SPOT, 2);
+    VarSet(VAR_STARTING_SPOT, 3);
 
     if (VarGet(VAR_STARTING_SPOT) == 0)
     {
@@ -135,19 +135,26 @@ static void WarpToTruck(void)
     }
     else if (VarGet(VAR_STARTING_SPOT) == 1)
     {
-        SetWarpDestination(MAP_GROUP(ECHELON_CITY_WEST), MAP_NUM(ECHELON_CITY_WEST), WARP_ID_NONE, 66, 9);
-        VarSet(VAR_ECHELON_CITY_WEST_STATE, 4);
+        SetWarpDestination(MAP_GROUP(ECHELON_CITY_WEST), MAP_NUM(ECHELON_CITY_WEST), WARP_ID_NONE, 66, 7);
+        VarSet(VAR_MAIN_STORY_STATE, 5);
     }
     else if (VarGet(VAR_STARTING_SPOT) == 2)
     {
         SetWarpDestination(MAP_GROUP(ECHELON_CITY_NORTH_POKE_LAB), MAP_NUM(ECHELON_CITY_NORTH_POKE_LAB), WARP_ID_NONE, 11, 14);
-        VarSet(VAR_ECHELON_CITY_WEST_STATE, 5);
-        VarSet(VAR_ECHELON_CITY_NORTH_LAB_STATE, 2);
-        VarSet(VAR_ECHELON_CITY_NORTH_STATE, 2);
+        VarSet(VAR_MAIN_STORY_STATE, 8);
         FlagSet(FLAG_ENTERED_LAB);
         FlagSet(FLAG_RECEIVED_STARTER);
         FlagSet(FLAG_SYS_POKEMON_GET);
         ScriptGiveMon(SPECIES_SHARPUGGLE, 5, ITEM_NONE, 0, 0, 0);
+    }
+    else if (VarGet(VAR_STARTING_SPOT) == 3)
+    {
+        SetWarpDestination(MAP_GROUP(ECHELON_CITY_NORTH), MAP_NUM(ECHELON_CITY_NORTH), WARP_ID_NONE, 46, 16);
+        VarSet(VAR_MAIN_STORY_STATE, 9);
+        FlagSet(FLAG_ENTERED_LAB);
+        FlagSet(FLAG_RECEIVED_STARTER);
+        FlagSet(FLAG_SYS_POKEMON_GET);
+        ScriptGiveMon(SPECIES_SHARPUGGLE, 6, ITEM_LEFTOVERS, 0, 0, 0);
     }
     WarpIntoMap();
 }

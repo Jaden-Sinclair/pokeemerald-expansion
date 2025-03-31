@@ -254,8 +254,8 @@
       "x": 12,
       "y": 12,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_LAB_STATE",
-      "var_value": "0",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "6",
       "script": "EchelonCityNorth_PokeLab_EventScript_FrontDeskBeforePokemon"
     },
     {
@@ -263,8 +263,8 @@
       "x": 7,
       "y": 8,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_LAB_STATE",
-      "var_value": "0",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "6",
       "script": "EchelonCityNorth_PokeLab_EventScript_LabGuardTriggerClose"
     },
     {
@@ -272,8 +272,8 @@
       "x": 7,
       "y": 9,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_LAB_STATE",
-      "var_value": "0",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "6",
       "script": "EchelonCityNorth_PokeLab_EventScript_LabGuardTriggerFar"
     },
     {
@@ -281,8 +281,8 @@
       "x": 4,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_LAB_STATE",
-      "var_value": "1",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "7",
       "script": "EchelonCityNorth_PokeLab_EventScript_LabGuardMustGetPokemon"
     },
     {
@@ -290,8 +290,8 @@
       "x": 5,
       "y": 7,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_LAB_STATE",
-      "var_value": "1",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "7",
       "script": "EchelonCityNorth_PokeLab_EventScript_LabGuardMustGetPokemon"
     }
   ],

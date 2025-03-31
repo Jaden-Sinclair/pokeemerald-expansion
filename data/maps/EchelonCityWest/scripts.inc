@@ -7,19 +7,18 @@ EchelonCityWest_MapScripts::
 
 EchelonCityWest_OnLoad:
 	clearflag FLAG_ECW_NORTH_BRIDGE_ID_CHECKED
-	compare VAR_ECHELON_CITY_WEST_STATE, 0
-	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationZero
-	compare VAR_ECHELON_CITY_WEST_STATE, 1
-	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationOne
-	compare VAR_ECHELON_CITY_WEST_STATE, 2
-	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationTwo
-	compare VAR_ECHELON_CITY_WEST_STATE, 3
-	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationThree
-	compare VAR_ECHELON_CITY_WEST_STATE, 4
-	goto_if_ge EchelonCityWest_EventScript_AnnaSetLocationFour
+	compare VAR_MAIN_STORY_STATE, 0
+	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationStart
+	compare VAR_MAIN_STORY_STATE, 1
+	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationOutsideSchool
+	compare VAR_MAIN_STORY_STATE, 2
+	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationCrossroads
+	compare VAR_MAIN_STORY_STATE, 3
+	goto_if_eq EchelonCityWest_EventScript_AnnaSetLocationNorthBridge
+	goto EchelonCityWest_EventScript_AnnaSetLocationRemoved
 	end
 
-EchelonCityWest_EventScript_AnnaSetLocationZero:
+EchelonCityWest_EventScript_AnnaSetLocationStart:
 	removeobject LOCALID_ANNA
 	setflag FLAG_HIDE_ANNA
 	setobjectxyperm LOCALID_ANNA, 42, 35
@@ -29,7 +28,7 @@ EchelonCityWest_EventScript_AnnaSetLocationZero:
 
 EchelonCityWest_EventScript_ExitApartmentUpper::
 	lockall
-	setvar VAR_ECHELON_CITY_WEST_STATE, 1
+	setvar VAR_MAIN_STORY_STATE, 1
 	opendoor 42, 35
 	waitdooranim
 	clearflag FLAG_HIDE_ANNA
@@ -43,7 +42,7 @@ EchelonCityWest_EventScript_ExitApartmentUpper::
 
 EchelonCityWest_EventScript_ExitApartmentLower::
 	lockall
-	setvar VAR_ECHELON_CITY_WEST_STATE, 1
+	setvar VAR_MAIN_STORY_STATE, 1
 	opendoor 42, 35
 	waitdooranim
 	clearflag FLAG_HIDE_ANNA
@@ -62,7 +61,7 @@ EchelonCityWest_EventScript_AnnaAsksReady::
 	call_if_ne EchelonCityWest_EventScript_RespondReadyNo
 	applymovement LOCALID_ANNA, EchelonCityWest_Movement_AnnaLeavesApartments
 	waitmovement 0
-	call EchelonCityWest_EventScript_AnnaSetLocationOne
+	call EchelonCityWest_EventScript_AnnaSetLocationOutsideSchool
 	releaseall
 	end
 
@@ -114,7 +113,7 @@ EchelonCityWest_Text_RespondReadyNo:
 	.string "C'mon, you'll be ready by the time we get\n"
 	.string "to the lab.$"
 
-EchelonCityWest_EventScript_AnnaSetLocationOne:
+EchelonCityWest_EventScript_AnnaSetLocationOutsideSchool:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 43, 20
 	addobject LOCALID_ANNA
@@ -134,11 +133,11 @@ EchelonCityWest_Movement_AnnaLeavesApartments:
 
 EchelonCityWest_EventScript_AnnaLeadsRight::
 	lockall
-	setvar VAR_ECHELON_CITY_WEST_STATE, 2
+	setvar VAR_MAIN_STORY_STATE, 2
 	msgbox EchelonCityWest_Text_AnnaWorryAboutClosed, MSGBOX_NPC
 	applymovement LOCALID_ANNA, EchelonCityWest_Movement_AnnaLeavesSchoolArea
 	waitmovement 0
-	call EchelonCityWest_EventScript_AnnaSetLocationTwo
+	call EchelonCityWest_EventScript_AnnaSetLocationCrossroads
 	releaseall
 	end
 
@@ -146,7 +145,7 @@ EchelonCityWest_Text_AnnaWorryAboutClosed:
 	.string "Hurry up! If we're late, they might not\n"
 	.string "let us across the bridge!$"
 
-EchelonCityWest_EventScript_AnnaSetLocationTwo:
+EchelonCityWest_EventScript_AnnaSetLocationCrossroads:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 51, 16
 	addobject LOCALID_ANNA
@@ -166,18 +165,18 @@ EchelonCityWest_Movement_AnnaLeavesSchoolArea:
 
 EchelonCityWest_EventScript_AnnaLeadsUp::
 	lockall
-	setvar VAR_ECHELON_CITY_WEST_STATE, 3
+	setvar VAR_MAIN_STORY_STATE, 3
 	msgbox EchelonCityWest_Text_AnnaThisWay, MSGBOX_NPC
 	applymovement LOCALID_ANNA, EchelonCityWest_Movement_AnnaGoToLabBridge
 	waitmovement 0
-	call EchelonCityWest_EventScript_AnnaSetLocationThree
+	call EchelonCityWest_EventScript_AnnaSetLocationNorthBridge
 	releaseall
 	end
 
 EchelonCityWest_Text_AnnaThisWay:
 	.string "This way!$"
 
-EchelonCityWest_EventScript_AnnaSetLocationThree:
+EchelonCityWest_EventScript_AnnaSetLocationNorthBridge:
 	removeobject LOCALID_ANNA
 	setobjectxyperm LOCALID_ANNA, 67, 9
 	addobject LOCALID_ANNA
@@ -199,13 +198,13 @@ EchelonCityWest_Movement_AnnaGoToLabBridge:
 
 EchelonCityWest_EventScript_AnnaLeadsAcrossBridge::
 	lockall
-	setvar VAR_ECHELON_CITY_WEST_STATE, 4
+	setvar VAR_MAIN_STORY_STATE, 4
 	msgbox EchelonCityWest_Text_AnnaThankNorthBridgeGuard, MSGBOX_DEFAULT
 	turnobject LOCALID_ANNA, DIR_WEST
 	msgbox EchelonCityWest_Text_AnnaSeePlayerOnOtherSide, MSGBOX_NPC
 	applymovement LOCALID_ANNA, EchelonCityWest_Movement_AnnaMoveAcrossBridge
 	waitmovement 0
-	call EchelonCityWest_EventScript_AnnaSetLocationFour
+	call EchelonCityWest_EventScript_AnnaSetLocationRemoved
 	releaseall
 	end
 
@@ -215,7 +214,7 @@ EchelonCityWest_Text_AnnaThankNorthBridgeGuard:
 EchelonCityWest_Text_AnnaSeePlayerOnOtherSide:
 	.string "I'll see you on the other side {PLAYER}!$"
 
-EchelonCityWest_EventScript_AnnaSetLocationFour:
+EchelonCityWest_EventScript_AnnaSetLocationRemoved:
 	removeobject LOCALID_ANNA
 	return
 
@@ -241,9 +240,9 @@ EchelonCityWest_Text_NorthBridgeGuardBridgeClosing:
 	.string "The bridge will be closing soon.$"
 
 EchelonCityWest_EventScript_NorthBridgeGuardBehavior::
-	compare VAR_ECHELON_CITY_WEST_STATE, 4
+	compare VAR_MAIN_STORY_STATE, 4
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardFirstTime
-	compare VAR_ECHELON_CITY_WEST_STATE, 5
+	compare VAR_MAIN_STORY_STATE, 5
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBack
 	goto_if_unset FLAG_ECW_NORTH_BRIDGE_ID_CHECKED, EchelonCityWest_EventScript_NorthBridgeGuardChecksId
 	msgbox EchelonCityWest_Text_NorthBridgeGuardFreeToPass, MSGBOX_NPC
@@ -254,9 +253,9 @@ EchelonCityWest_Text_NorthBridgeGuardFreeToPass:
 
 EchelonCityWest_EventScript_NorthBridgeGuardStopsPlayer::
 	setflag FLAG_STOPPED_BY_GUARD
-	compare VAR_ECHELON_CITY_WEST_STATE, 4
+	compare VAR_MAIN_STORY_STATE, 4
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardFirstTimeStopped
-	compare VAR_ECHELON_CITY_WEST_STATE, 5
+	compare VAR_MAIN_STORY_STATE, 5
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardNoTurningBackStopped
 	goto_if_set FLAG_ECW_NORTH_BRIDGE_ID_CHECKED, EchelonCityWest_EventScript_NorthBridgeGuardIgnore
 	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
@@ -289,7 +288,7 @@ EchelonCityWest_EventScript_NorthBridgeGuardIgnore:
 
 EchelonCityWest_EventScript_NorthBridgeGuardFirstTime:
 	faceplayer
-	setvar VAR_ECHELON_CITY_WEST_STATE, 5
+	setvar VAR_MAIN_STORY_STATE, 5
 	msgbox EchelonCityWest_Text_NorthBridgeGuardFirstTime, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardAnswerYes
@@ -297,7 +296,7 @@ EchelonCityWest_EventScript_NorthBridgeGuardFirstTime:
 
 EchelonCityWest_EventScript_NorthBridgeGuardFirstTimeStopped:
 	turnobject LOCALID_NORTH_BRIDGE_GUARD, DIR_WEST
-	setvar VAR_ECHELON_CITY_WEST_STATE, 5
+	setvar VAR_MAIN_STORY_STATE, 5
 	msgbox EchelonCityWest_Text_NorthBridgeGuardFirstTime, MSGBOX_YESNO
 	compare VAR_RESULT, YES
 	goto_if_eq EchelonCityWest_EventScript_NorthBridgeGuardAnswerYes

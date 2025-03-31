@@ -31,10 +31,10 @@ EchelonCityNorth_PokeLab_OnResume:
 
 EchelonCityNorth_PokeLab_EventScript_ProfessorBehaviour::
 	lock
-	compare VAR_ECHELON_CITY_NORTH_LAB_STATE, 1
+	compare VAR_MAIN_STORY_STATE, 7
 	goto_if_eq EchelonCityNorth_PokeLab_EventScript_ProfessorGoOn
-	compare VAR_ECHELON_CITY_NORTH_STATE, 2
-	goto_if_le EchelonCityNorth_PokeLab_EventScript_ProfessorFreeToGo
+	compare VAR_MAIN_STORY_STATE, 8
+	goto_if_eq EchelonCityNorth_PokeLab_EventScript_ProfessorFreeToGo
 	switch VAR_STARTER_MON
 	option 0, EchelonCityNorth_EventScript_ProfessorDefaultSharpuggle
 	option 1, EchelonCityNorth_EventScript_ProfessorDefaultWispan
@@ -77,7 +77,7 @@ EchelonCityNorth_PokeLab_Text_ProfessorDefaultSpeech:
 
 EchelonCityNorth_PokeLab_EventScript_LabGuardBehaviour::
 	lock
-	compare VAR_ECHELON_CITY_NORTH_LAB_STATE, 1
+	compare VAR_MAIN_STORY_STATE, 7
 	goto_if_eq EchelonCityNorth_PokeLab_EventScript_LabGuardMustGetPokemonTalk
 	goto_if_lt EchelonCityNorth_PokeLab_EventScript_LabGuardTriggerRight
 	msgbox EchelonCityNorth_PokeLab_Text_LabGuardSpeech, MSGBOX_NPC
@@ -145,7 +145,7 @@ EchelonCityNorth_PokeLab_Text_LabGuardMustGetPokemon:
 	.string "to get your Pokémon later.$"
 
 EchelonCityNorth_PokeLab_EventScript_GetPokemonCutscene:
-	setvar VAR_ECHELON_CITY_NORTH_LAB_STATE, 1
+	setvar VAR_MAIN_STORY_STATE, 7
 	applymovement LOCALID_LAB_GUARD, Common_Movement_WalkUp
 	applymovement OBJ_EVENT_ID_PLAYER, Common_Movement_WalkLeft
 	waitmovement 0
@@ -229,9 +229,7 @@ EchelonCityNorth_PokeLab_EventScript_ReceivePokemon::
 	lockall
 	setflag FLAG_RECEIVED_STARTER
 	setflag FLAG_SYS_POKEMON_GET
-	setvar VAR_ECHELON_CITY_NORTH_LAB_STATE, 2
-	setvar VAR_ECHELON_CITY_NORTH_STATE, 2
-	setvar VAR_ECHELON_CITY_WEST_STATE, 6
+	setvar VAR_MAIN_STORY_STATE, 8
 	fadescreen FADE_TO_BLACK
 	removeobject LOCALID_HIDING_BOY
 	removeobject LOCALID_RICH_MAN

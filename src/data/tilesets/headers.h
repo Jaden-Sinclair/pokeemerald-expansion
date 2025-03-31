@@ -858,3 +858,25 @@ const struct Tileset gTileset_EchelonCityWestIndoor =
     .metatileAttributes = gMetatileAttributes_EchelonCityWestIndoor,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Apartment_Brown =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Apartment_Brown,
+    .palettes = gTilesetPalettes_Apartment_Brown,
+    .metatiles = gMetatiles_Apartment_Brown,
+    .metatileAttributes = gMetatileAttributes_Apartment_Brown,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_ApartmentBrownTile =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_ApartmentBrownTile,
+    .palettes = gTilesetPalettes_ApartmentBrownTile,
+    .metatiles = gMetatiles_ApartmentBrownTile,
+    .metatileAttributes = gMetatileAttributes_ApartmentBrownTile,
+    .callback = NULL,
+};

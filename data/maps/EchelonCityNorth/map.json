@@ -166,7 +166,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EchelonCityNorth_EventScript_WistfulBoyBehaviour",
-      "flag": "FLAG_RECEIVED_STARTER"
+      "flag": "FLAG_HIDE_WISTFUL_BOY"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
@@ -219,6 +219,32 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "EchelonCityNorth_EventScript_BattleBoyPokemonBehaviour",
       "flag": "FLAG_RECEIVED_STARTER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RED",
+      "x": 13,
+      "y": 19,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROGER"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_RICH_BOY",
+      "x": 13,
+      "y": 18,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_ROGER"
     }
   ],
   "warp_events": [
@@ -261,9 +287,36 @@
       "x": 21,
       "y": 14,
       "elevation": 0,
-      "var": "VAR_ECHELON_CITY_NORTH_STATE",
-      "var_value": "0",
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "5",
       "script": "EchelonCityNorth_EventScript_AnnaRunsToLab"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "9",
+      "script": "EchelonCityNorth_EventScript_KidRunsOff"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 20,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "9",
+      "script": "EchelonCityNorth_EventScript_KidRunsOff"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 21,
+      "elevation": 0,
+      "var": "VAR_MAIN_STORY_STATE",
+      "var_value": "9",
+      "script": "EchelonCityNorth_EventScript_KidRunsOff"
     }
   ],
   "bg_events": [

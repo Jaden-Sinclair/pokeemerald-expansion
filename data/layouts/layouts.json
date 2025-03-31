@@ -4547,7 +4547,7 @@
       "width": 17,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "secondary_tileset": "gTileset_ApartmentBrownTile",
       "border_filepath": "data/layouts/EchelonCityWest_AnnaFlat_1F/border.bin",
       "blockdata_filepath": "data/layouts/EchelonCityWest_AnnaFlat_1F/map.bin"
     },
@@ -4557,7 +4557,7 @@
       "width": 17,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "secondary_tileset": "gTileset_ApartmentBrownTile",
       "border_filepath": "data/layouts/EchelonCityWest_AnnaFlat_2F/border.bin",
       "blockdata_filepath": "data/layouts/EchelonCityWest_AnnaFlat_2F/map.bin"
     },
@@ -4567,7 +4567,7 @@
       "width": 17,
       "height": 13,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_EchelonCityWestIndoor",
+      "secondary_tileset": "gTileset_ApartmentBrownTile",
       "border_filepath": "data/layouts/EchelonCityWest_AnnaFlat_3F/border.bin",
       "blockdata_filepath": "data/layouts/EchelonCityWest_AnnaFlat_3F/map.bin"
     }

@@ -1691,3 +1691,41 @@ const u16 gTilesetPalettes_EchelonCityWestIndoor[][16] =
 };
 
 const u32 gTilesetTiles_EchelonCityWestIndoor[] = INCBIN_U32("data/tilesets/secondary/echelon_city_west_indoor/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Apartment_Brown[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Apartment_Brown[] = INCBIN_U32("data/tilesets/secondary/apartment_brown/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_ApartmentBrownTile[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/apartment_brown_tile/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_ApartmentBrownTile[] = INCBIN_U32("data/tilesets/secondary/apartment_brown_tile/tiles.4bpp.lz");
